@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>AD_UNIT_ID_FOR_BANNER_TEST</key>
+	<string>ca-app-pub-3940256099942544/2934735716</string>
+	<key>AD_UNIT_ID_FOR_INTERSTITIAL_TEST</key>
+	<string>ca-app-pub-3940256099942544/4411468910</string>
+	<key>CLIENT_ID</key>
+	<string>487980077564-4a0n2bb1fo8j9d4dmkknq1cigim03ol8.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.487980077564-4a0n2bb1fo8j9d4dmkknq1cigim03ol8</string>
+	<key>API_KEY</key>
+	<string>AIzaSyBhY6VrgRpYw0P50X5T1wTLGydVD36aILE</string>
+	<key>GCM_SENDER_ID</key>
+	<string>487980077564</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>com.shiwadaiki.dev11.ReSports</string>
+	<key>PROJECT_ID</key>
+	<string>resports-e009c</string>
+	<key>STORAGE_BUCKET</key>
+	<string>resports-e009c.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<true></true>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<false></false>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:487980077564:ios:0f9e5f32d4d8dd50</string>
+	<key>DATABASE_URL</key>
+	<string>https://resports-e009c.firebaseio.com</string>
+</dict>
+</plist>
