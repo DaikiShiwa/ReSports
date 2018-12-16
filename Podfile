@@ -10,7 +10,6 @@ target 'ReSports' do
   pod 'Firebase/Core'
   pod 'Firebase/Database'
   pod 'Firebase/Auth'
-  pod 'JSQMessagesViewController'
   pod 'RAMAnimatedTabBarController'
   pod 'GoogleMaps'
   pod 'GooglePlaces'
