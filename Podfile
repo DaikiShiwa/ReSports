@@ -17,6 +17,5 @@ target 'ReSports' do
   pod 'FBSDKLoginKit'
   pod 'FirebaseUI/Facebook'
   pod 'FirebaseUI/Twitter'
-  pod 'PageMenu'
 
 end
