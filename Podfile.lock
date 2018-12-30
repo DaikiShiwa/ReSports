@@ -90,6 +90,7 @@ PODS:
     - nanopb/encode (= 0.3.901)
   - nanopb/decode (0.3.901)
   - nanopb/encode (0.3.901)
+  - PageMenu (2.0.0)
   - RAMAnimatedTabBarController (4.0.1)
   - TwitterCore (3.2.0)
   - TwitterKit (3.4.2):
@@ -105,6 +106,7 @@ DEPENDENCIES:
   - FirebaseUI/Twitter
   - GoogleMaps
   - GooglePlaces
+  - PageMenu
   - RAMAnimatedTabBarController
 
 SPEC REPOS:
@@ -127,6 +129,7 @@ SPEC REPOS:
     - GTMSessionFetcher
     - leveldb-library
     - nanopb
+    - PageMenu
     - RAMAnimatedTabBarController
     - TwitterCore
     - TwitterKit
@@ -150,10 +153,11 @@ SPEC CHECKSUMS:
   GTMSessionFetcher: 0c4baf0a73acd0041bf9f71ea018deedab5ea84e
   leveldb-library: 08cba283675b7ed2d99629a4bc5fd052cd2bb6a5
   nanopb: 2901f78ea1b7b4015c860c2fdd1ea2fee1a18d48
+  PageMenu: 9c38fd7e0d9ef4b1408320f55bb907bbc0e538dc
   RAMAnimatedTabBarController: 677d6f7ec7e88b1089486f4db49b0a5067e8ad1c
   TwitterCore: 8cbc9ad34d91c63a0035ea05bfbfc0d7ca72a28c
   TwitterKit: 5e4f41d70b9abdb41df5467f52d7aa2c0fd26ebb
 
-PODFILE CHECKSUM: a438b39e69d49d104e6ab5fc38eb34cd4498062e
+PODFILE CHECKSUM: 4df13cb824b63a2b6062262bdecd4e4770930071
 
 COCOAPODS: 1.5.3
