@@ -8,8 +8,9 @@ target 'ReSports' do
   # Pods for ReSports
 
   pod 'Firebase/Core'
-  pod 'Firebase/Database'
+  pod 'Firebase/Firestore'
   pod 'Firebase/Auth'
+  pod 'Firebase/Storage'
   pod 'RAMAnimatedTabBarController'
   pod 'GoogleMaps'
   pod 'GooglePlaces'
@@ -17,5 +18,6 @@ target 'ReSports' do
   pod 'FBSDKLoginKit'
   pod 'FirebaseUI/Facebook'
   pod 'FirebaseUI/Twitter'
+  pod 'Eureka'
 
 end

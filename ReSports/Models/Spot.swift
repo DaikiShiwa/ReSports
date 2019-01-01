@@ -69,8 +69,6 @@ extension Spot {
             Spot(35.66974, 139.7377, "氷川武道場"),
             Spot(35.6642, 139.7491, "愛宕弓道場"),
             Spot(35.63732, 139.7599, "芝浦南ふ頭公園運動広場（かいがんぱ～く）"),
-            
-        
         ]
         
 //        func sortedList(nearFrom location: CLLocation) -> [Spot] {
