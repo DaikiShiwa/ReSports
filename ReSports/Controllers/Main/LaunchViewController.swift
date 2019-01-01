@@ -16,7 +16,7 @@ class LaunchViewController: FormViewController {
     var eventDay = Date()
     var playTime = ""
     var memberCount = ""
-    var applicant:String = String("")
+    var applicant = ""
     var dueDay = Date()
     var location = ""
     
@@ -118,9 +118,9 @@ class LaunchViewController: FormViewController {
                     }
 //                    to.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .done, target: from, action: #selector(RowsExampleViewController.multipleSelectorDone(_:)))
                 }//応募者の属性をとりたい、、、
-//                .onChange {row in
-//                    self.applicant
-//                }
+                .onChange {row in
+                    self.applicant = row.value ?? ""
+                }
             
             <<< DateRow() {
                 $0.title = "応募期限"
