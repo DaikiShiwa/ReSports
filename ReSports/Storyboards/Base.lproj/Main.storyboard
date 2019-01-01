@@ -126,6 +126,15 @@
                                 <color key="textColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hXS-TC-azY">
+                                <rect key="frame" x="0.0" y="577" width="375" height="40"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="mw8-Sv-27E"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <state key="normal" title="確認"/>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="0.93501549959182739" green="0.93221968412399292" blue="0.95221251249313354" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
@@ -142,17 +151,20 @@
                             <constraint firstItem="U9P-QC-edt" firstAttribute="leading" secondItem="oXp-mc-uwf" secondAttribute="leading" id="XA5-zM-gWJ"/>
                             <constraint firstItem="oXp-mc-uwf" firstAttribute="trailing" secondItem="W56-SE-YLK" secondAttribute="trailing" constant="15" id="YCB-RP-w5v"/>
                             <constraint firstItem="gQ5-qh-2a6" firstAttribute="leading" secondItem="oXp-mc-uwf" secondAttribute="leading" constant="15" id="YVq-u8-K14"/>
+                            <constraint firstItem="hXS-TC-azY" firstAttribute="trailing" secondItem="oXp-mc-uwf" secondAttribute="trailing" id="YfT-WE-QtA"/>
                             <constraint firstItem="W56-SE-YLK" firstAttribute="top" secondItem="HOZ-tw-d1O" secondAttribute="bottom" constant="10" id="dI6-XW-94H"/>
+                            <constraint firstItem="hXS-TC-azY" firstAttribute="top" secondItem="gQ5-qh-2a6" secondAttribute="bottom" constant="20" id="iWp-bA-jBo"/>
                             <constraint firstItem="HOZ-tw-d1O" firstAttribute="trailing" secondItem="oXp-mc-uwf" secondAttribute="trailing" id="kh4-F1-6EZ"/>
                             <constraint firstItem="oXp-mc-uwf" firstAttribute="trailing" secondItem="0mH-7w-VK5" secondAttribute="trailing" constant="15" id="m7n-Z2-fzc"/>
                             <constraint firstItem="W56-SE-YLK" firstAttribute="leading" secondItem="oXp-mc-uwf" secondAttribute="leading" constant="15" id="toX-4v-Zhg"/>
+                            <constraint firstItem="hXS-TC-azY" firstAttribute="leading" secondItem="oXp-mc-uwf" secondAttribute="leading" id="yYr-jy-bwy"/>
                             <constraint firstItem="HOZ-tw-d1O" firstAttribute="leading" secondItem="oXp-mc-uwf" secondAttribute="leading" id="zxx-V1-KR9"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="oXp-mc-uwf"/>
                     </view>
                     <navigationItem key="navigationItem" title="詳細情報" id="tV3-kw-EcT"/>
                     <connections>
-                        <segue destination="yBl-et-52S" kind="show" id="HI6-xO-sVE"/>
+                        <segue destination="EgV-Kg-zdW" kind="show" id="2zu-H5-Wxb"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vbG-J1-Abd" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -160,39 +172,37 @@
             <point key="canvasLocation" x="1580" y="1576.4617691154424"/>
         </scene>
         <!--開催の確認-->
-        <scene sceneID="cCZ-t3-d1z">
+        <scene sceneID="HBk-uz-CZB">
             <objects>
-                <viewController id="yBl-et-52S" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="ECh-FY-KSk">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="1000"/>
+                <viewController id="EgV-Kg-zdW" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Op0-Mm-vd8">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="0kZ-6S-La1">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="1000"/>
-                                <subviews>
-                                    <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Wdc-9j-SnD">
-                                        <rect key="frame" x="0.0" y="0.0" width="375" height="1000"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                    </view>
-                                </subviews>
-                            </scrollView>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="VsE-ge-xGd">
+                                <rect key="frame" x="0.0" y="64" width="375" height="554"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="r4y-zr-YuD">
+                                        <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="r4y-zr-YuD" id="zc4-Mg-Qeo">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <constraints>
-                            <constraint firstItem="0kZ-6S-La1" firstAttribute="leading" secondItem="Mns-V2-MaI" secondAttribute="leading" id="BMf-su-vzJ"/>
-                            <constraint firstItem="0kZ-6S-La1" firstAttribute="trailing" secondItem="Mns-V2-MaI" secondAttribute="trailing" id="OPm-oc-SFI"/>
-                            <constraint firstAttribute="bottom" secondItem="0kZ-6S-La1" secondAttribute="bottom" id="Qu5-2M-AZK"/>
-                            <constraint firstItem="0kZ-6S-La1" firstAttribute="top" secondItem="ECh-FY-KSk" secondAttribute="top" id="yfd-ci-fW8"/>
-                        </constraints>
-                        <viewLayoutGuide key="safeArea" id="Mns-V2-MaI"/>
+                        <viewLayoutGuide key="safeArea" id="1Mz-br-Jfm"/>
                     </view>
-                    <navigationItem key="navigationItem" title="開催の確認" id="oZA-ds-49S"/>
-                    <size key="freeformSize" width="375" height="1000"/>
+                    <navigationItem key="navigationItem" title="開催の確認" id="td1-7f-Ejt"/>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="0ei-5z-syH" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Xda-WA-Zi8" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2437.5999999999999" y="1725.3373313343329"/>
+            <point key="canvasLocation" x="2437.5999999999999" y="1576.4617691154424"/>
         </scene>
         <!--message-->
         <scene sceneID="lQx-Pa-tg2">
