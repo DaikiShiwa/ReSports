@@ -74,7 +74,7 @@
                     </view>
                     <navigationItem key="navigationItem" title="開催登録" id="LA7-pS-BNc"/>
                     <connections>
-                        <segue destination="A51-Hz-sg7" kind="show" identifier="showToAddViewController" id="YD2-RR-SIW"/>
+                        <segue destination="A51-Hz-sg7" kind="show" identifier="showToNextLaunchViewController" id="YD2-RR-SIW"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8as-kU-fRv" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -84,12 +84,12 @@
         <!--詳細情報-->
         <scene sceneID="SL9-XX-DE0">
             <objects>
-                <viewController id="A51-Hz-sg7" sceneMemberID="viewController">
+                <viewController id="A51-Hz-sg7" customClass="NextLaunchViewController" customModule="ReSports" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="WkU-Iw-kaL">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="場所" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eUd-Ad-C4V">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="地図" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eUd-Ad-C4V">
                                 <rect key="frame" x="15" y="84" width="345" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
@@ -124,6 +124,7 @@
                                     <constraint firstAttribute="height" constant="140" id="tAo-3I-lra"/>
                                 </constraints>
                                 <color key="textColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hXS-TC-azY">
@@ -134,6 +135,10 @@
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <state key="normal" title="確認"/>
+                                <connections>
+                                    <action selector="checkButton:" destination="A51-Hz-sg7" eventType="touchUpInside" id="7uA-Fk-IIT"/>
+                                    <segue destination="7lw-Tf-Pz2" kind="show" id="R4A-yI-Kbq"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" red="0.93501549959182739" green="0.93221968412399292" blue="0.95221251249313354" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -164,45 +169,91 @@
                     </view>
                     <navigationItem key="navigationItem" title="詳細情報" id="tV3-kw-EcT"/>
                     <connections>
-                        <segue destination="EgV-Kg-zdW" kind="show" id="2zu-H5-Wxb"/>
+                        <outlet property="mapCanvasView" destination="HOZ-tw-d1O" id="geA-wj-Egq"/>
+                        <outlet property="remarksTextField" destination="gQ5-qh-2a6" id="ebc-Lo-T0m"/>
+                        <outlet property="todoImageView" destination="U9P-QC-edt" id="fBr-Xw-5Yq"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vbG-J1-Abd" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1580" y="1576.4617691154424"/>
+            <point key="canvasLocation" x="1562" y="1577"/>
         </scene>
-        <!--開催の確認-->
-        <scene sceneID="HBk-uz-CZB">
+        <!--開催内容の確認-->
+        <scene sceneID="JIA-yS-i1z">
             <objects>
-                <viewController id="EgV-Kg-zdW" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="Op0-Mm-vd8">
+                <viewController id="7lw-Tf-Pz2" customClass="CheckViewController" customModule="ReSports" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="WvX-s0-vD4">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="VsE-ge-xGd">
-                                <rect key="frame" x="0.0" y="64" width="375" height="554"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="xW3-Nb-vBj">
+                                <rect key="frame" x="0.0" y="64" width="375" height="460"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="r4y-zr-YuD">
-                                        <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="InfoCell" textLabel="AKI-p3-47r" detailTextLabel="PTD-bq-wRD" rowHeight="58" style="IBUITableViewCellStyleValue1" id="HXi-bx-foz">
+                                        <rect key="frame" x="0.0" y="28" width="375" height="58"/>
                                         <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="r4y-zr-YuD" id="zc4-Mg-Qeo">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="HXi-bx-foz" id="bBL-xZ-J9u" customClass="InfoCell" customModule="ReSports" customModuleProvider="target">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="57.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="AKI-p3-47r">
+                                                    <rect key="frame" x="15" y="19" width="33.5" height="20.5"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Detail" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="PTD-bq-wRD">
+                                                    <rect key="frame" x="316" y="19" width="44" height="20.5"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <connections>
+                                                <outlet property="detailLabel" destination="PTD-bq-wRD" id="LzR-8b-dF4"/>
+                                                <outlet property="titleLabel" destination="AKI-p3-47r" id="lzQ-Am-mVg"/>
+                                            </connections>
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EGF-ZQ-kEy">
+                                <rect key="frame" x="20" y="554" width="335" height="34"/>
+                                <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="18"/>
+                                <state key="normal" title="この内容で登録する">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="15"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <viewLayoutGuide key="safeArea" id="1Mz-br-Jfm"/>
+                        <constraints>
+                            <constraint firstItem="xW3-Nb-vBj" firstAttribute="top" secondItem="YrE-fn-oNa" secondAttribute="top" id="Ozh-q5-Riu"/>
+                            <constraint firstItem="EGF-ZQ-kEy" firstAttribute="top" secondItem="xW3-Nb-vBj" secondAttribute="bottom" constant="30" id="Tmo-U9-sn1"/>
+                            <constraint firstItem="EGF-ZQ-kEy" firstAttribute="leading" secondItem="YrE-fn-oNa" secondAttribute="leading" constant="20" id="ar1-yp-U5h"/>
+                            <constraint firstItem="YrE-fn-oNa" firstAttribute="trailing" secondItem="EGF-ZQ-kEy" secondAttribute="trailing" constant="20" id="gut-CP-njc"/>
+                            <constraint firstItem="xW3-Nb-vBj" firstAttribute="trailing" secondItem="YrE-fn-oNa" secondAttribute="trailing" id="k7A-w0-k2k"/>
+                            <constraint firstItem="YrE-fn-oNa" firstAttribute="bottom" secondItem="EGF-ZQ-kEy" secondAttribute="bottom" constant="30" id="qWV-gC-WvP"/>
+                            <constraint firstItem="xW3-Nb-vBj" firstAttribute="leading" secondItem="YrE-fn-oNa" secondAttribute="leading" id="zdM-Oc-Tir"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="YrE-fn-oNa"/>
                     </view>
-                    <navigationItem key="navigationItem" title="開催の確認" id="td1-7f-Ejt"/>
+                    <navigationItem key="navigationItem" title="開催内容の確認" id="6gG-wR-0xw"/>
+                    <connections>
+                        <outlet property="tableView" destination="xW3-Nb-vBj" id="jXK-CJ-QG4"/>
+                    </connections>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Xda-WA-Zi8" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="X7A-2l-RPS" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2437.5999999999999" y="1576.4617691154424"/>
+            <point key="canvasLocation" x="2357.5999999999999" y="1574.6626686656673"/>
         </scene>
         <!--message-->
         <scene sceneID="lQx-Pa-tg2">

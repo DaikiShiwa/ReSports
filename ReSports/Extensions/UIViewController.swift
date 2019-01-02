@@ -20,4 +20,14 @@ extension UIViewController {
         }))
         self.present(alert, animated: true, completion: nil)
     }
+    
+    //TextField外をタップしたら、キーボードが消えてほしい機能
+    func hideKeyboardWhenTappedAround() {
+        let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(UIViewController.hideKeyboard))
+        tap.cancelsTouchesInView = false
+        view.addGestureRecognizer(tap)
+    }
+    @objc func hideKeyboard() {
+        view.endEditing(true)
+    }
 }

@@ -19,5 +19,6 @@ target 'ReSports' do
   pod 'FirebaseUI/Facebook'
   pod 'FirebaseUI/Twitter'
   pod 'Eureka'
+  pod 'Nuke'
 
 end

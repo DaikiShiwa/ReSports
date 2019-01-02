@@ -11,6 +11,15 @@
 		1C0960CD21C69EF600468CF8 /* key.plist in Resources */ = {isa = PBXBuildFile; fileRef = 1C0960CC21C69EF600468CF8 /* key.plist */; };
 		1C0960CF21C69F4300468CF8 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 1C0960CE21C69F4200468CF8 /* GoogleService-Info.plist */; };
 		1C0D257D21C390D9008D4883 /* Spot.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C0D257C21C390D9008D4883 /* Spot.swift */; };
+		1C0EA36021DB85FC00BB7F7B /* Task.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C0EA35F21DB85FC00BB7F7B /* Task.swift */; };
+		1C0EA36221DB90EB00BB7F7B /* UIImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C0EA36121DB90EB00BB7F7B /* UIImage.swift */; };
+		1C0EA36521DB965700BB7F7B /* ImageRepositoryProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C0EA36421DB965700BB7F7B /* ImageRepositoryProtocol.swift */; };
+		1C0EA36721DB969100BB7F7B /* TaskRepositoryProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C0EA36621DB969100BB7F7B /* TaskRepositoryProtocol.swift */; };
+		1C0EA36921DB96DD00BB7F7B /* FirestoreTaskRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C0EA36821DB96DD00BB7F7B /* FirestoreTaskRepository.swift */; };
+		1C0EA36C21DB9DFB00BB7F7B /* TaskService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C0EA36B21DB9DFB00BB7F7B /* TaskService.swift */; };
+		1C0EA36F21DBA63100BB7F7B /* NextLaunchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C0EA36E21DBA63100BB7F7B /* NextLaunchViewController.swift */; };
+		1C0EA37921DC72E900BB7F7B /* CheckViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C0EA37821DC72E900BB7F7B /* CheckViewController.swift */; };
+		1C0EA37D21DC790200BB7F7B /* InfoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C0EA37C21DC790200BB7F7B /* InfoCell.swift */; };
 		1C184AE821C3F4B800AC3A27 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C184AE721C3F4B800AC3A27 /* LoginViewController.swift */; };
 		1C5633FE21C40FE90027B074 /* Login.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1C5633FD21C40FE90027B074 /* Login.storyboard */; };
 		1C56340321C425C20027B074 /* Credential.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C56340221C425C20027B074 /* Credential.swift */; };
@@ -31,6 +40,15 @@
 		1C0960CC21C69EF600468CF8 /* key.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = key.plist; sourceTree = "<group>"; };
 		1C0960CE21C69F4200468CF8 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		1C0D257C21C390D9008D4883 /* Spot.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Spot.swift; sourceTree = "<group>"; };
+		1C0EA35F21DB85FC00BB7F7B /* Task.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Task.swift; sourceTree = "<group>"; };
+		1C0EA36121DB90EB00BB7F7B /* UIImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImage.swift; sourceTree = "<group>"; };
+		1C0EA36421DB965700BB7F7B /* ImageRepositoryProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageRepositoryProtocol.swift; sourceTree = "<group>"; };
+		1C0EA36621DB969100BB7F7B /* TaskRepositoryProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskRepositoryProtocol.swift; sourceTree = "<group>"; };
+		1C0EA36821DB96DD00BB7F7B /* FirestoreTaskRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirestoreTaskRepository.swift; sourceTree = "<group>"; };
+		1C0EA36B21DB9DFB00BB7F7B /* TaskService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskService.swift; sourceTree = "<group>"; };
+		1C0EA36E21DBA63100BB7F7B /* NextLaunchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NextLaunchViewController.swift; sourceTree = "<group>"; };
+		1C0EA37821DC72E900BB7F7B /* CheckViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckViewController.swift; sourceTree = "<group>"; };
+		1C0EA37C21DC790200BB7F7B /* InfoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoCell.swift; sourceTree = "<group>"; };
 		1C184AE621C3F3EC00AC3A27 /* ReSports.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = ReSports.entitlements; sourceTree = "<group>"; };
 		1C184AE721C3F4B800AC3A27 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		1C5633FD21C40FE90027B074 /* Login.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Login.storyboard; sourceTree = "<group>"; };
@@ -73,6 +91,35 @@
 			path = Models;
 			sourceTree = "<group>";
 		};
+		1C0EA36321DB95A400BB7F7B /* Repositories */ = {
+			isa = PBXGroup;
+			children = (
+				1C0EA36421DB965700BB7F7B /* ImageRepositoryProtocol.swift */,
+				1C0EA36621DB969100BB7F7B /* TaskRepositoryProtocol.swift */,
+				1C0EA36821DB96DD00BB7F7B /* FirestoreTaskRepository.swift */,
+			);
+			path = Repositories;
+			sourceTree = "<group>";
+		};
+		1C0EA36A21DB9DE200BB7F7B /* Servises */ = {
+			isa = PBXGroup;
+			children = (
+				1C0EA36B21DB9DFB00BB7F7B /* TaskService.swift */,
+			);
+			path = Servises;
+			sourceTree = "<group>";
+		};
+		1C0EA36D21DBA5F800BB7F7B /* Launch */ = {
+			isa = PBXGroup;
+			children = (
+				1CD946B421BB86E4007B3B30 /* LaunchViewController.swift */,
+				1C0EA36E21DBA63100BB7F7B /* NextLaunchViewController.swift */,
+				1C0EA37821DC72E900BB7F7B /* CheckViewController.swift */,
+				1C0EA37C21DC790200BB7F7B /* InfoCell.swift */,
+			);
+			path = Launch;
+			sourceTree = "<group>";
+		};
 		1C184AE921C3F4C000AC3A27 /* Login */ = {
 			isa = PBXGroup;
 			children = (
@@ -85,6 +132,7 @@
 		1C5633FF21C425970027B074 /* Entity */ = {
 			isa = PBXGroup;
 			children = (
+				1C0EA35F21DB85FC00BB7F7B /* Task.swift */,
 				1C56340221C425C20027B074 /* Credential.swift */,
 				1C56340921C436CB0027B074 /* User.swift */,
 			);
@@ -95,6 +143,7 @@
 			isa = PBXGroup;
 			children = (
 				1C56340521C429160027B074 /* UIViewController.swift */,
+				1C0EA36121DB90EB00BB7F7B /* UIImage.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -121,8 +170,10 @@
 			isa = PBXGroup;
 			children = (
 				1C184AE621C3F3EC00AC3A27 /* ReSports.entitlements */,
-				1C56340421C428F90027B074 /* Extensions */,
+				1C0EA36A21DB9DE200BB7F7B /* Servises */,
 				1C5633FF21C425970027B074 /* Entity */,
+				1C56340421C428F90027B074 /* Extensions */,
+				1C0EA36321DB95A400BB7F7B /* Repositories */,
 				1C0D257B21C390C2008D4883 /* Models */,
 				1CD946A921BB6524007B3B30 /* Storyboards */,
 				1CD946A821BB650C007B3B30 /* Controllers */,
@@ -156,10 +207,10 @@
 		1CD946B821BB8F7B007B3B30 /* Main */ = {
 			isa = PBXGroup;
 			children = (
+				1C0EA36D21DBA5F800BB7F7B /* Launch */,
 				1CD946B021BB868C007B3B30 /* OthersViewController.swift */,
 				1CD946B621BB8B78007B3B30 /* FindViewController.swift */,
 				1CD946AE21BB864B007B3B30 /* MapViewController.swift */,
-				1CD946B421BB86E4007B3B30 /* LaunchViewController.swift */,
 				1CD946B221BB86BA007B3B30 /* MessageViewController.swift */,
 			);
 			path = Main;
@@ -329,6 +380,7 @@
 				"${BUILT_PRODUCTS_DIR}/FBSDKLoginKit/FBSDKLoginKit.framework",
 				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
 				"${BUILT_PRODUCTS_DIR}/GoogleUtilities/GoogleUtilities.framework",
+				"${BUILT_PRODUCTS_DIR}/Nuke/Nuke.framework",
 				"${BUILT_PRODUCTS_DIR}/Protobuf/Protobuf.framework",
 				"${BUILT_PRODUCTS_DIR}/RAMAnimatedTabBarController/RAMAnimatedTabBarController.framework",
 				"${PODS_ROOT}/TwitterCore/iOS/TwitterCore.framework",
@@ -352,6 +404,7 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FBSDKLoginKit.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleUtilities.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Nuke.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Protobuf.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RAMAnimatedTabBarController.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/TwitterCore.framework",
@@ -378,16 +431,25 @@
 			files = (
 				1CD946B121BB868C007B3B30 /* OthersViewController.swift in Sources */,
 				1CD946B521BB86E4007B3B30 /* LaunchViewController.swift in Sources */,
+				1C0EA36C21DB9DFB00BB7F7B /* TaskService.swift in Sources */,
 				1C56340321C425C20027B074 /* Credential.swift in Sources */,
 				1C56340621C429160027B074 /* UIViewController.swift in Sources */,
 				1CD946AF21BB864B007B3B30 /* MapViewController.swift in Sources */,
+				1C0EA36921DB96DD00BB7F7B /* FirestoreTaskRepository.swift in Sources */,
 				1CD946B321BB86BA007B3B30 /* MessageViewController.swift in Sources */,
 				1C184AE821C3F4B800AC3A27 /* LoginViewController.swift in Sources */,
 				1C56340821C42BE60027B074 /* CreateViewController.swift in Sources */,
+				1C0EA36021DB85FC00BB7F7B /* Task.swift in Sources */,
 				1C56340A21C436CB0027B074 /* User.swift in Sources */,
 				1CD9469321B9759F007B3B30 /* AppDelegate.swift in Sources */,
+				1C0EA37921DC72E900BB7F7B /* CheckViewController.swift in Sources */,
 				1C0D257D21C390D9008D4883 /* Spot.swift in Sources */,
+				1C0EA36721DB969100BB7F7B /* TaskRepositoryProtocol.swift in Sources */,
 				1CD946B721BB8B78007B3B30 /* FindViewController.swift in Sources */,
+				1C0EA36221DB90EB00BB7F7B /* UIImage.swift in Sources */,
+				1C0EA36521DB965700BB7F7B /* ImageRepositoryProtocol.swift in Sources */,
+				1C0EA36F21DBA63100BB7F7B /* NextLaunchViewController.swift in Sources */,
+				1C0EA37D21DC790200BB7F7B /* InfoCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -147,6 +147,7 @@ PODS:
     - nanopb/encode (= 0.3.901)
   - nanopb/decode (0.3.901)
   - nanopb/encode (0.3.901)
+  - Nuke (7.5.1)
   - Protobuf (3.6.1)
   - RAMAnimatedTabBarController (4.0.1)
   - TwitterCore (3.2.0)
@@ -165,6 +166,7 @@ DEPENDENCIES:
   - FirebaseUI/Twitter
   - GoogleMaps
   - GooglePlaces
+  - Nuke
   - RAMAnimatedTabBarController
 
 SPEC REPOS:
@@ -195,6 +197,7 @@ SPEC REPOS:
     - GTMSessionFetcher
     - leveldb-library
     - nanopb
+    - Nuke
     - Protobuf
     - RAMAnimatedTabBarController
     - TwitterCore
@@ -227,11 +230,12 @@ SPEC CHECKSUMS:
   GTMSessionFetcher: 0c4baf0a73acd0041bf9f71ea018deedab5ea84e
   leveldb-library: 08cba283675b7ed2d99629a4bc5fd052cd2bb6a5
   nanopb: 2901f78ea1b7b4015c860c2fdd1ea2fee1a18d48
+  Nuke: 3814db501e55f17951451839c726ffd91641e9a5
   Protobuf: 1eb9700044745f00181c136ef21b8ff3ad5a0fd5
   RAMAnimatedTabBarController: 677d6f7ec7e88b1089486f4db49b0a5067e8ad1c
   TwitterCore: 8cbc9ad34d91c63a0035ea05bfbfc0d7ca72a28c
   TwitterKit: 5e4f41d70b9abdb41df5467f52d7aa2c0fd26ebb
 
-PODFILE CHECKSUM: 51d836760cb576f84c91e422521083f9bcb072cf
+PODFILE CHECKSUM: e697b405b5ca43aa096efebd279bed27d519ca2a
 
 COCOAPODS: 1.5.3
