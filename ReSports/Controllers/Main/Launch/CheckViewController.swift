@@ -22,6 +22,8 @@ class CheckViewController: UIViewController, UITableViewDelegate, UITableViewDat
     
     var eventsNameResultArray = [String]()
     
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.delegate = self
@@ -55,7 +57,7 @@ class CheckViewController: UIViewController, UITableViewDelegate, UITableViewDat
 //        }
 //        let cell = tableView.dequeueReusableCell(withIdentifier: <#T##String#>, for: <#T##IndexPath#>)
     }
-    
+}
 //    // sectionの数を返す関数
 //    override func numberOfSections(in tableView: UITableView) -> Int {
 //        // #warning Incomplete implementation, return the number of sections
@@ -78,4 +80,4 @@ class CheckViewController: UIViewController, UITableViewDelegate, UITableViewDat
 //     override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
 //         return sectionTitle[section] as? String
 //     }
-}
+

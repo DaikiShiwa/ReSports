@@ -8,16 +8,14 @@
 
 import UIKit
 import Firebase
-import FBSDKCoreKit
 import FBSDKLoginKit
 
-class LoginViewController: UIViewController, FBSDKLoginButtonDelegate {
+class LoginViewController: UIViewController, FBSDKLoginButtonDelegate{
     
 //    let user = User.shared
     
     override func viewDidLoad() {
         super.viewDidLoad()
-//        user.delegate = self
     }
     
 //    override func viewDidAppear(_ animated: Bool) {
@@ -49,34 +47,38 @@ class LoginViewController: UIViewController, FBSDKLoginButtonDelegate {
 //            self.presentTaskList()
             return
         }
-//         ログインボタン設置
-//        let fbLoginBtn = FBSDKLoginButton()
-//        fbLoginBtn.readPermissions = ["public_profile", "email"]
-//        fbLoginBtn.center = self.view.center
-//        fbLoginBtn.delegate = self
-//        self.view.addSubview(fbLoginBtn)
     }
     
     //Facebookボタン
     @IBAction func FacebookLoginButton(_ sender: Any) {
+        let loginManager = FBSDKLoginManager()
+        loginManager.logIn(withReadPermissions: ["email", "public_profile"], from: self, handler: { (result, error) in
+            if let error = error {
+                print("👿1 \(error.localizedDescription)")
+            } else if result!.isCancelled {
+                print("FBLogin cancelled")
+            } else {
+                // `FacebookAuthProvider`⬅️これはFirebaseの方のクラス。こいつがFacebookのトークンをつかってFirebaseの認証用のトークンを作っている
+                let credential = FacebookAuthProvider.credential(withAccessToken: FBSDKAccessToken.current().tokenString)
+                // `Auth`もFirebaseのクラス。⬆️のcredentialをつかってFirebaseにログインしている
+                Auth.auth().signInAndRetrieveData(with: credential) { (authResult, error) in
+                    if let error = error {
+                        print("👿2 \(error.localizedDescription)")
+                        // ここでエラーコードは確認出来る https://firebase.google.com/docs/reference/swift/firebaseauth/api/reference/Enums/AuthErrorCode
+                        print("👿2 \(error._code)")
+                        return
+                    }
+                    print("👼 ログイン完了")
+                    self.presentTaskList()
+                }
+            }
+        })
     }
     
     //メールアドレスボタン
     @IBAction func logindidTouchButton(_ sender: UIButton) {
         print("飛んでるよ")
     }
-    
-//    func didCreate(error: Error?) {
-//        if let error = error {
-//            self.alert("エラー", error.localizedDescription, nil)
-//            return
-//        }
-//        self.presentTaskList()
-//    }
-//
-//    func didLogin(error: Error?) {
-//        <#code#>
-//    }
     
     //ログインコールバック（Facebook）
     func loginButton(_ loginButton: FBSDKLoginButton!, didCompleteWith result: FBSDKLoginManagerLoginResult!, error: Error!) {
@@ -109,6 +111,23 @@ class LoginViewController: UIViewController, FBSDKLoginButtonDelegate {
         let viewController = storyboard.instantiateViewController(withIdentifier: "TabBarController")
         self.present(viewController, animated: true, completion: nil)
     }
+    
+//    //delegate
+//    func didCreate(error: Error?) {
+//        if let error = error {
+//            self.alert("エラー", error.localizedDescription, nil)
+//            return
+//        }
+//        self.presentTaskList()
+//    }
+//    func didLogin(error: Error?) {
+//        if let error = error {
+//            print (error.localizedDescription)
+//            self.alert("エラー", error.localizedDescription, nil)
+//            return
+//        }
+//        self.presentTaskList()
+//    }
     
 //    @IBAction func didTouchAnonymouslyLoginButton(_ sender: Any) {
 //        Auth.auth().signInAnonymously() {

@@ -7,6 +7,8 @@
 //
 
 import UIKit
+import Firebase
+import FBSDKLoginKit
 
 class FindViewController: UIViewController {
 
@@ -18,7 +20,18 @@ class FindViewController: UIViewController {
     }
 
     @IBAction func didTouchLogoutButton(_ sender: Any) {
+        //メールアドレスアカウントのログアウト
         user.logout()
+        //Facebookアカウントのログアウト
+        do {
+            let loginManager = FBSDKLoginManager()
+            loginManager.logOut() //Facebookログアウト
+            try Auth.auth().signOut() // Firebaseログアウト
+            print("👼 ログアウト完了")
+        } catch let signOutError as NSError {
+            print ("👿 Error signing out: %@", signOutError)
+        }
+        
         //Storyboardを指定
         let storyboard = UIStoryboard(name: "Login", bundle: nil)
         //Viewcontrollerを指定

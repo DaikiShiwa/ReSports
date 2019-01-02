@@ -156,8 +156,8 @@ PODS:
 
 DEPENDENCIES:
   - Eureka
-  - FBSDKCoreKit
-  - FBSDKLoginKit
+  - FBSDKCoreKit (~> 4.38.0)
+  - FBSDKLoginKit (~> 4.38.0)
   - Firebase/Auth
   - Firebase/Core
   - Firebase/Firestore
@@ -236,6 +236,6 @@ SPEC CHECKSUMS:
   TwitterCore: 8cbc9ad34d91c63a0035ea05bfbfc0d7ca72a28c
   TwitterKit: 5e4f41d70b9abdb41df5467f52d7aa2c0fd26ebb
 
-PODFILE CHECKSUM: e697b405b5ca43aa096efebd279bed27d519ca2a
+PODFILE CHECKSUM: 2db8aecf72263053c0ae71e2f05eb3d58a41d2ba
 
 COCOAPODS: 1.5.3

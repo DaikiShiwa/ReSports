@@ -86,11 +86,6 @@ class LaunchViewController: FormViewController {
                 }.onChange {row in
                     self.memberCount = row.value ?? ""
                 }
-            //場所（LocationRowの予定）
-        
-        
-            
-        
             <<< SwitchRow() {
                 $0.title = "募集制限"
                 $0.value = false
@@ -149,7 +144,6 @@ class LaunchViewController: FormViewController {
     }
     
     private func saveAll() {
-        
         //記入された内容を配列に入れて、アプリに保存する
         UserDefaults.standard.set(eventsName, forKey: "eventsName")
         UserDefaults.standard.set(sportsName, forKey: "sportsName")
