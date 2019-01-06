@@ -27,7 +27,7 @@ class FirestoreTaskRepository: TaskRepositoryProtocol {
         return db.collection("users").document(uid).collection("tasks")
     }
     
-    func save(_ tasks: [Task], completion: (() -> Void)) {
+    func save(_ tasks: [Event], completion: (() -> Void)) {
         // TODO トランザクション
         let collectionRef = getCollectionRef()
         tasks.forEach { (task) in
@@ -51,9 +51,9 @@ class FirestoreTaskRepository: TaskRepositoryProtocol {
         completion()
     }
     
-    func load(completion: @escaping (([Task]) -> Void)) {
+    func load(completion: @escaping (([Event]) -> Void)) {
         print ("データロード")
-        var tasks: [Task] = [];
+        var tasks: [Event] = [];
         let collectionRef = getCollectionRef()
         collectionRef.getDocuments { (querySnapshot, error) in
             if let error = error {
@@ -62,7 +62,7 @@ class FirestoreTaskRepository: TaskRepositoryProtocol {
                 documents.forEach({ (document) in
                     if document.exists {
                         let data = document.data()
-                        let task = Task(data: data)
+                        let task = Event(data: data)
                         task.id = document.documentID
                         tasks.append(task)
                     }

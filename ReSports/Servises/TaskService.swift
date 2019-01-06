@@ -18,7 +18,7 @@ protocol TaskServiceDelegate: class {
 
 class TaskService {
     static var shared = TaskService()
-    private var tasks: [Task] = []
+    private var tasks: [Event] = []
     
     // タスクを保存する役割を担っている
     // どこに保存するのかは分離している
@@ -30,7 +30,7 @@ class TaskService {
 //
 //    }
     
-    func getTask (at: Int) -> Task{
+    func getTask (at: Int) -> Event{
         return tasks[at]
     }
     
@@ -39,7 +39,7 @@ class TaskService {
     }
     
     // タスクの追加
-    func addTask (_ task: Task) {
+    func addTask (_ task: Event) {
         tasks.append(task)
     }
     
@@ -99,7 +99,7 @@ class TaskService {
         }
     }
     
-    func loadImage(task: Task, imageView: UIImageView) {
+    func loadImage(task: Event, imageView: UIImageView) {
         guard let url = task.imageUrl else {
             return
         }

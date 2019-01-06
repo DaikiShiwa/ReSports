@@ -15,7 +15,6 @@ class LaunchViewController: FormViewController {
     var sportsName = ""
     var eventDay = Date()
     var playTime = ""
-    var applicant = ""
     var memberCount = ""
     var level = ""
     var gender = ""
@@ -48,7 +47,7 @@ class LaunchViewController: FormViewController {
                 $0.title = "スポーツ種目"
                 $0.selectorTitle = "スポーツを選択"
                 $0.options = ["野球","テニス","フットサル","バスケットボール","バレーボール","ゴルフ","卓球","バドミントン","その他"]
-                $0.value = "野球" //初期選択項目
+//                $0.value = "野球" //初期選択項目
                 }.onChange{row in
                     self.sportsName = row.value ?? ""
             }
@@ -67,7 +66,7 @@ class LaunchViewController: FormViewController {
                 $0.cancelTitle = "キャンセル"
                 $0.selectorTitle = "プレイ時間"
                 $0.options = ["１時間","２時間","３時間","４時間","５時間","６時間","７時間","８時間"]
-                $0.value = "１時間"
+//                $0.value = "１時間"
                 }.onChange { row in
                     self.playTime = row.value ?? ""
 //                    print(row.value ?? "No Value")
@@ -102,33 +101,46 @@ class LaunchViewController: FormViewController {
                     return !((form.rowBy(tag: "switch") as? SwitchRow)?.value ?? false)
                 })
             }
-            <<< PushRow<String>("level") {
+            
+            <<< SegmentedRow<String>("level") {
                 $0.title = "レベル"
-                $0.options = ["初心者","初級","初中級","中級","中上級","上級"]
-                $0.value = "初心者"
-                }.onPresent{ from, to in
-                    to.dismissOnSelection = true
-                    to.dismissOnChange = false
+                $0.options = ["初心者","中級者","上級者"]
                 }.onChange {row in
                     self.level = row.value ?? ""
-                }
+            }
             
-            <<< MultipleSelectorRow<String>("applicant") {
-                $0.title = "応募者の条件"
-                $0.options = ["初心者","初級","初中級","中級","中上級","上級","男性","女性","10代","20代","30代","40代","50代","60代","70代〜"]
-                }.onPresent { from, to in
-                    to.sectionKeyForValue = { option in
-                        switch option {
-                        case "初心者","初級","初中級","中級","中上級","上級": return "レベル"
-                        case "男性","女性": return "性別"
-                        case "10代","20代","30代","40代","50代","60代","70代〜": return "年齢"
-                        default: return ""
-                        }
-                    }
-//                    to.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .done, target: from, action: #selector(RowsExampleViewController.multipleSelectorDone(_:)))
-                }//応募者の属性をとりたい、、、
+            <<< SegmentedRow<String>("gender") {
+                $0.title = "性別"
+                $0.options = ["男性","女性","選択しない"]
+                }.onChange {row in
+                    self.gender = row.value ?? ""
+            }
+            
+            <<< MultipleSelectorRow<String>("age") {
+                $0.title = "年齢"
+                $0.options = ["10代","20代","30代","40代","50代","60代","70代〜"]
+//                options.joined(separator: ", ")
+//                }.onChange {row in
+//                    self.age = row.value?.joined(separator: ", ") ??
+//                    self.age = row.value ?? ""
+            }
+            
+//            <<< MultipleSelectorRow<String>("applicant") {
+//                $0.title = "応募者の条件"
+//                $0.options = ["初心者","初級","初中級","中級","中上級","上級","男性","女性","10代","20代","30代","40代","50代","60代","70代〜"]
+//                }.onPresent { from, to in
+//                    to.sectionKeyForValue = { option in
+//                        switch option {
+//                        case "初心者","初級","初中級","中級","中上級","上級": return "レベル"
+//                        case "男性","女性": return "性別"
+//                        case "10代","20代","30代","40代","50代","60代","70代〜": return "年齢"
+//                        default: return ""
+//                        }
+//                    }
+////                    to.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .done, target: from, action: #selector(RowsExampleViewController.multipleSelectorDone(_:)))
+//                }//応募者の属性をとりたい、、、
 //                .onChange {row in
-//                    self.applicant = row.value ?? "" as! String
+//                    self.applicant = row.value
 //                }
             
             <<< DateRow("dueDay") {
@@ -159,14 +171,15 @@ class LaunchViewController: FormViewController {
     }
     
     private func saveAll() {
-        
         //記入された内容を配列に入れて、アプリに保存する
         UserDefaults.standard.set(eventsName, forKey: "eventsName")
         UserDefaults.standard.set(sportsName, forKey: "sportsName")
         UserDefaults.standard.set(eventDay, forKey: "eventDay")
         UserDefaults.standard.set(playTime, forKey: "playTime")
         UserDefaults.standard.set(memberCount, forKey: "memberCount")
-        UserDefaults.standard.set(applicant, forKey: "applicant")
+        UserDefaults.standard.set(level, forKey: "level")
+        UserDefaults.standard.set(gender, forKey: "gender")
+        UserDefaults.standard.set(age, forKey: "age")
         UserDefaults.standard.set(dueDay, forKey: "dueDay")
         
         print("開催名", eventsName)
@@ -174,7 +187,9 @@ class LaunchViewController: FormViewController {
         print("開催日時", eventDay)
         print("プレイ時間", playTime)
         print("募集人数", memberCount)
-        print("応募者の条件", applicant)
+        print("応募者の条件", level)
+        print("応募者の条件", gender)
+        print("応募者の条件", age)
         print("応募期限", dueDay)
     }
     

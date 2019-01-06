@@ -32,8 +32,6 @@ class CheckViewController: UIViewController, UITableViewDelegate, UITableViewDat
     // UserDefaults のインスタンス
     let userDefaults = UserDefaults.standard
     
-//    var eventsNameResultArray = [String]()
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.delegate = self
@@ -43,7 +41,7 @@ class CheckViewController: UIViewController, UITableViewDelegate, UITableViewDat
             titleArray.append([])
         }
         titleArray[0] = ["開催名", "スポーツ種目"]
-        titleArray[1] = ["開催日時", "プレイ時間", "募集人数", "応募者の条件", "応募期限"]
+        titleArray[1] = ["開催日時", "プレイ時間", "募集人数", "レベル", "性別", "年齢", "応募期限"]
         titleArray[2] = ["地図", "写真", "備考"]
         
         for _ in 0 ... 9{
@@ -54,7 +52,9 @@ class CheckViewController: UIViewController, UITableViewDelegate, UITableViewDat
         detailArray[1] = [userDefaults.object(forKey: "eventsName") as! String,//eventDay
                           userDefaults.object(forKey: "playTime") as! String,
                           userDefaults.object(forKey: "memberCount") as! String,
-                          userDefaults.object(forKey: "applicant") as! String,
+                          userDefaults.object(forKey: "level") as! String,
+                          userDefaults.object(forKey: "gender") as! String,
+                          userDefaults.object(forKey: "age") as! String,
                           userDefaults.object(forKey: "eventsName") as! String]//dueDay
         detailArray[2] = [userDefaults.object(forKey: "eventsName") as! String,
                           userDefaults.object(forKey: "eventsName") as! String,
@@ -112,7 +112,10 @@ class CheckViewController: UIViewController, UITableViewDelegate, UITableViewDat
                                            "開催日時": userDefaults.object(forKey: "eventDay")!,
                                            "プレイ時間": userDefaults.object(forKey: "playTime")!,
                                            "募集人数": userDefaults.object(forKey: "memberCount")!,
-                                           "応募者の条件": userDefaults.object(forKey: "applicant")!]
+                                           "レベル": userDefaults.object(forKey: "level")!,
+                                           "性別": userDefaults.object(forKey: "gender")!,
+                                           "年齢": userDefaults.object(forKey: "age")!,
+                                           "応募期限": userDefaults.object(forKey: "dueDay")!]
         
         let uid = User.shared.getUid()
         db.collection("users").document(uid!).collection("events").addDocument(data: registerData)

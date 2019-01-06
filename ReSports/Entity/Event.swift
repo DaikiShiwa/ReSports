@@ -1,5 +1,5 @@
 //
-//  Task.swift
+//  Event.swift
 //  ReSports
 //
 //  Created by 志波大輝 on 2019/01/01.
@@ -8,14 +8,16 @@
 
 import UIKit
 
-class Task: Codable {
+class Event: Codable {
     var id: String?
     var eventsName: String?
     var sportsName: String?
     var eventDay: Date?
     var playTime: String?
     var memberCount: String?
-    var applicant: String?
+    var level: String?
+    var gender: String?
+    var age: String?
     var dueDay: Date?
     var latitude: Double?
     var longitude: Double?
@@ -30,7 +32,9 @@ class Task: Codable {
         case eventDay
         case playTime
         case memberCount
-        case applicant
+        case level
+        case gender
+        case age
         case dueDay
         case latitude
         case longitude
@@ -54,8 +58,14 @@ class Task: Codable {
         if let memberCount = data["memberCount"] as? String {
             self.memberCount = memberCount
         }
-        if let applicant = data["applicant"] as? String {
-            self.applicant = applicant
+        if let applicant = data["level"] as? String {
+            self.level = applicant
+        }
+        if let applicant = data["gender"] as? String {
+            self.gender = applicant
+        }
+        if let applicant = data["age"] as? String {
+            self.age = applicant
         }
         if let dueDay = data["dueDay"] as? Date {
             self.dueDay = dueDay
@@ -81,7 +91,9 @@ class Task: Codable {
         self.eventDay = try container.decode(Date.self, forKey: .eventDay)
         self.playTime = try container.decode(String.self, forKey: .playTime)
         self.memberCount = try container.decode(String.self, forKey: .memberCount)
-        self.applicant = try container.decode(String.self, forKey: .applicant)
+        self.level = try container.decode(String.self, forKey: .level)
+        self.gender = try container.decode(String.self, forKey: .gender)
+        self.age = try container.decode(String.self, forKey: .age)
         self.dueDay = try container.decode(Date.self, forKey: .dueDay)
         self.latitude = try container.decode(Double.self, forKey: .latitude)
         self.longitude = try container.decode(Double.self, forKey: .longitude)
@@ -96,7 +108,9 @@ class Task: Codable {
         try container.encode(eventDay, forKey: .eventDay)
         try container.encode(playTime, forKey: .playTime)
         try container.encode(memberCount, forKey: .memberCount)
-        try container.encode(applicant, forKey: .applicant)
+        try container.encode(level, forKey: .level)
+        try container.encode(gender, forKey: .gender)
+        try container.encode(age, forKey: .age)
         try container.encode(dueDay, forKey: .dueDay)
         try container.encode(latitude, forKey: .latitude)
         try container.encode(longitude, forKey: .longitude)
@@ -111,7 +125,9 @@ class Task: Codable {
             "eventDay": self.eventDay,
             "playTime": self.playTime,
             "memberCount": self.memberCount,
-            "applicant": self.applicant,
+            "level": self.level,
+            "gender": self.gender,
+            "age": self.age,
             "dueDay": self.dueDay,
             "latitude": self.latitude,
             "longitude": self.longitude,
