@@ -16,6 +16,7 @@ class NextLaunchViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
     }
     
     @IBAction func checkButton(_ sender: Any) {

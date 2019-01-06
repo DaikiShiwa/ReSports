@@ -20,6 +20,7 @@
 		1C0EA36F21DBA63100BB7F7B /* NextLaunchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C0EA36E21DBA63100BB7F7B /* NextLaunchViewController.swift */; };
 		1C0EA37921DC72E900BB7F7B /* CheckViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C0EA37821DC72E900BB7F7B /* CheckViewController.swift */; };
 		1C0EA37D21DC790200BB7F7B /* InfoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C0EA37C21DC790200BB7F7B /* InfoCell.swift */; };
+		1C0EA38021E0797F00BB7F7B /* UserDefaultsTaskRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C0EA37F21E0797F00BB7F7B /* UserDefaultsTaskRepository.swift */; };
 		1C184AE821C3F4B800AC3A27 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C184AE721C3F4B800AC3A27 /* LoginViewController.swift */; };
 		1C5633FE21C40FE90027B074 /* Login.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1C5633FD21C40FE90027B074 /* Login.storyboard */; };
 		1C56340321C425C20027B074 /* Credential.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C56340221C425C20027B074 /* Credential.swift */; };
@@ -49,6 +50,7 @@
 		1C0EA36E21DBA63100BB7F7B /* NextLaunchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NextLaunchViewController.swift; sourceTree = "<group>"; };
 		1C0EA37821DC72E900BB7F7B /* CheckViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckViewController.swift; sourceTree = "<group>"; };
 		1C0EA37C21DC790200BB7F7B /* InfoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoCell.swift; sourceTree = "<group>"; };
+		1C0EA37F21E0797F00BB7F7B /* UserDefaultsTaskRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsTaskRepository.swift; sourceTree = "<group>"; };
 		1C184AE621C3F3EC00AC3A27 /* ReSports.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = ReSports.entitlements; sourceTree = "<group>"; };
 		1C184AE721C3F4B800AC3A27 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		1C5633FD21C40FE90027B074 /* Login.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Login.storyboard; sourceTree = "<group>"; };
@@ -97,6 +99,7 @@
 				1C0EA36421DB965700BB7F7B /* ImageRepositoryProtocol.swift */,
 				1C0EA36621DB969100BB7F7B /* TaskRepositoryProtocol.swift */,
 				1C0EA36821DB96DD00BB7F7B /* FirestoreTaskRepository.swift */,
+				1C0EA37F21E0797F00BB7F7B /* UserDefaultsTaskRepository.swift */,
 			);
 			path = Repositories;
 			sourceTree = "<group>";
@@ -118,6 +121,38 @@
 				1C0EA37C21DC790200BB7F7B /* InfoCell.swift */,
 			);
 			path = Launch;
+			sourceTree = "<group>";
+		};
+		1C0EA38121E079E500BB7F7B /* Map */ = {
+			isa = PBXGroup;
+			children = (
+				1CD946AE21BB864B007B3B30 /* MapViewController.swift */,
+			);
+			path = Map;
+			sourceTree = "<group>";
+		};
+		1C0EA38221E079F700BB7F7B /* Find */ = {
+			isa = PBXGroup;
+			children = (
+				1CD946B621BB8B78007B3B30 /* FindViewController.swift */,
+			);
+			path = Find;
+			sourceTree = "<group>";
+		};
+		1C0EA38321E07A0B00BB7F7B /* Message */ = {
+			isa = PBXGroup;
+			children = (
+				1CD946B221BB86BA007B3B30 /* MessageViewController.swift */,
+			);
+			path = Message;
+			sourceTree = "<group>";
+		};
+		1C0EA38421E07A1B00BB7F7B /* Others */ = {
+			isa = PBXGroup;
+			children = (
+				1CD946B021BB868C007B3B30 /* OthersViewController.swift */,
+			);
+			path = Others;
 			sourceTree = "<group>";
 		};
 		1C184AE921C3F4C000AC3A27 /* Login */ = {
@@ -207,11 +242,11 @@
 		1CD946B821BB8F7B007B3B30 /* Main */ = {
 			isa = PBXGroup;
 			children = (
+				1C0EA38221E079F700BB7F7B /* Find */,
+				1C0EA38121E079E500BB7F7B /* Map */,
 				1C0EA36D21DBA5F800BB7F7B /* Launch */,
-				1CD946B021BB868C007B3B30 /* OthersViewController.swift */,
-				1CD946B621BB8B78007B3B30 /* FindViewController.swift */,
-				1CD946AE21BB864B007B3B30 /* MapViewController.swift */,
-				1CD946B221BB86BA007B3B30 /* MessageViewController.swift */,
+				1C0EA38321E07A0B00BB7F7B /* Message */,
+				1C0EA38421E07A1B00BB7F7B /* Others */,
 			);
 			path = Main;
 			sourceTree = "<group>";
@@ -433,6 +468,7 @@
 				1CD946B521BB86E4007B3B30 /* LaunchViewController.swift in Sources */,
 				1C0EA36C21DB9DFB00BB7F7B /* TaskService.swift in Sources */,
 				1C56340321C425C20027B074 /* Credential.swift in Sources */,
+				1C0EA38021E0797F00BB7F7B /* UserDefaultsTaskRepository.swift in Sources */,
 				1C56340621C429160027B074 /* UIViewController.swift in Sources */,
 				1CD946AF21BB864B007B3B30 /* MapViewController.swift in Sources */,
 				1C0EA36921DB96DD00BB7F7B /* FirestoreTaskRepository.swift in Sources */,

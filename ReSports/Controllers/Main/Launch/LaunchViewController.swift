@@ -15,17 +15,21 @@ class LaunchViewController: FormViewController {
     var sportsName = ""
     var eventDay = Date()
     var playTime = ""
-    var memberCount = ""
     var applicant = ""
+    var memberCount = ""
+    var level = ""
+    var gender = ""
+    var age = ""
     var dueDay = Date()
     var location = ""
     
     static var dateFormat: DateFormatter = {
         let f = DateFormatter()
         f.dateFormat = "yyyy/MM/dd/ h:mm a"
-
+        f.locale = Locale(identifier: "ja_JP")
         return f
     }()
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -98,6 +102,17 @@ class LaunchViewController: FormViewController {
                     return !((form.rowBy(tag: "switch") as? SwitchRow)?.value ?? false)
                 })
             }
+            <<< PushRow<String>("level") {
+                $0.title = "レベル"
+                $0.options = ["初心者","初級","初中級","中級","中上級","上級"]
+                $0.value = "初心者"
+                }.onPresent{ from, to in
+                    to.dismissOnSelection = true
+                    to.dismissOnChange = false
+                }.onChange {row in
+                    self.level = row.value ?? ""
+                }
+            
             <<< MultipleSelectorRow<String>("applicant") {
                 $0.title = "応募者の条件"
                 $0.options = ["初心者","初級","初中級","中級","中上級","上級","男性","女性","10代","20代","30代","40代","50代","60代","70代〜"]
@@ -113,7 +128,7 @@ class LaunchViewController: FormViewController {
 //                    to.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .done, target: from, action: #selector(RowsExampleViewController.multipleSelectorDone(_:)))
                 }//応募者の属性をとりたい、、、
 //                .onChange {row in
-//                    self.applicant = row.value ?? ""
+//                    self.applicant = row.value ?? "" as! String
 //                }
             
             <<< DateRow("dueDay") {
@@ -144,6 +159,7 @@ class LaunchViewController: FormViewController {
     }
     
     private func saveAll() {
+        
         //記入された内容を配列に入れて、アプリに保存する
         UserDefaults.standard.set(eventsName, forKey: "eventsName")
         UserDefaults.standard.set(sportsName, forKey: "sportsName")
@@ -153,13 +169,13 @@ class LaunchViewController: FormViewController {
         UserDefaults.standard.set(applicant, forKey: "applicant")
         UserDefaults.standard.set(dueDay, forKey: "dueDay")
         
-//        print("開催名", eventsName)
-//        print("スポーツ種目", sportsName)
-//        print("開催日時", eventDay)
-//        print("プレイ時間", playTime)
-//        print("募集人数", memberCount)
-//        print("応募者の条件", applicant)
-//        print("応募期限", dueDay)
+        print("開催名", eventsName)
+        print("スポーツ種目", sportsName)
+        print("開催日時", eventDay)
+        print("プレイ時間", playTime)
+        print("募集人数", memberCount)
+        print("応募者の条件", applicant)
+        print("応募期限", dueDay)
     }
     
     func showAlert(_ text: String){

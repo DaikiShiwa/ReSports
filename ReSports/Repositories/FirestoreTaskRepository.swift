@@ -28,12 +28,49 @@ class FirestoreTaskRepository: TaskRepositoryProtocol {
     }
     
     func save(_ tasks: [Task], completion: (() -> Void)) {
-        
+        // TODO トランザクション
+        let collectionRef = getCollectionRef()
+        tasks.forEach { (task) in
+            
+            if task.deleted{
+                if let id = task.id {
+                    let documentRef = collectionRef.document(id)
+                    documentRef.setData(task.toData() as [String : Any])
+                }
+                return
+            }
+            if let id = task.id {
+                let documentRef = collectionRef.document(id)
+                documentRef.setData(task.toData() as [String : Any])
+            } else {
+                let documentRef = collectionRef.addDocument(data: task.toData() as [String : Any])
+                task.id = documentRef.documentID
+            }
+        }
+        // firestoreへの保存は非同期ではない（後でバックグラウンドで同期をしている？）
+        completion()
     }
     
     func load(completion: @escaping (([Task]) -> Void)) {
-        
+        print ("データロード")
+        var tasks: [Task] = [];
+        let collectionRef = getCollectionRef()
+        collectionRef.getDocuments { (querySnapshot, error) in
+            if let error = error {
+                print (error.localizedDescription)
+            }else if let documents = querySnapshot?.documents {
+                documents.forEach({ (document) in
+                    if document.exists {
+                        let data = document.data()
+                        let task = Task(data: data)
+                        task.id = document.documentID
+                        tasks.append(task)
+                    }
+                })
+            }
+            // Firestoreからデータを読み込み終わったら
+            // Firestoreの機能としてはデータが変更されたらというイベントもあるのでそちらも設定すると別端末で更新されたときにリアルタイムで更新ができる。
+            completion(tasks)
+        }
     }
-    
-    
 }

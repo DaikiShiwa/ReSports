@@ -9,6 +9,7 @@
 import UIKit
 
 class Task: Codable {
+    var id: String?
     var eventsName: String?
     var sportsName: String?
     var eventDay: Date?
