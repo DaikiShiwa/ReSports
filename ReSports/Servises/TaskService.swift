@@ -18,7 +18,7 @@ protocol TaskServiceDelegate: class {
 
 class TaskService {
     static var shared = TaskService()
-    private var tasks: [Event] = []
+    private var events: [Event] = []
     
     // タスクを保存する役割を担っている
     // どこに保存するのかは分離している
@@ -31,31 +31,31 @@ class TaskService {
 //    }
     
     func getTask (at: Int) -> Event{
-        return tasks[at]
+        return events[at]
     }
     
     func taskCount () -> Int{
-        return tasks.count
+        return events.count
     }
     
     // タスクの追加
     func addTask (_ task: Event) {
-        tasks.append(task)
+        events.append(task)
     }
     
     // タスクの削除
     func removeTask (at: Int) {
         //        tasks.remove(at: at)
-        tasks[at].deleted = true
+        events[at].deleted = true
     }
     
     func reset () {
-        tasks = []
+        events = []
     }
     
     func save () {
-        taskRepository.save(tasks) {
-            tasks = tasks.filter({ (task) -> Bool in
+        taskRepository.save(events) {
+            events = events.filter({ (task) -> Bool in
                 return task.deleted == false
             })
             
@@ -65,8 +65,8 @@ class TaskService {
     }
     
     func load() {
-        taskRepository.load(completion: { (tasks) in
-            self.tasks = tasks
+        taskRepository.load(completion: { (events) in
+            self.events = events
             // デリゲートでフック。読み出したら実行
             self.delegate?.loaded()
         })

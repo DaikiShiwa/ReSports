@@ -14,5 +14,6 @@ class EventCell:UITableViewCell {
     @IBOutlet weak var eventDayLabel: UILabel!
     @IBOutlet weak var blackView: UIView!
     @IBOutlet weak var eventImage: UIImageView!
+    @IBOutlet weak var yohakuView: UIView!
     
 }

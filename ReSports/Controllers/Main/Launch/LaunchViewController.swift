@@ -187,9 +187,9 @@ class LaunchViewController: FormViewController {
         print("開催日時", eventDay)
         print("プレイ時間", playTime)
         print("募集人数", memberCount)
-        print("応募者の条件", level)
-        print("応募者の条件", gender)
-        print("応募者の条件", age)
+        print("レベル", level)
+        print("性別", gender)
+        print("年齢", age)
         print("応募期限", dueDay)
     }
     

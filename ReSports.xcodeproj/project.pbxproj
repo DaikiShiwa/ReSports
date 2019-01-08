@@ -23,7 +23,6 @@
 		1C0EA38021E0797F00BB7F7B /* UserDefaultsTaskRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C0EA37F21E0797F00BB7F7B /* UserDefaultsTaskRepository.swift */; };
 		1C0EA38D21E37D8000BB7F7B /* EventCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C0EA38C21E37D8000BB7F7B /* EventCell.swift */; };
 		1C0EA38F21E3844B00BB7F7B /* EventCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1C0EA38E21E3844B00BB7F7B /* EventCell.xib */; };
-		1C0EA39321E42C2900BB7F7B /* SearchCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C0EA39221E42C2900BB7F7B /* SearchCell.swift */; };
 		1C184AE821C3F4B800AC3A27 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C184AE721C3F4B800AC3A27 /* LoginViewController.swift */; };
 		1C5633FE21C40FE90027B074 /* Login.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1C5633FD21C40FE90027B074 /* Login.storyboard */; };
 		1C56340321C425C20027B074 /* Credential.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C56340221C425C20027B074 /* Credential.swift */; };
@@ -56,7 +55,6 @@
 		1C0EA37F21E0797F00BB7F7B /* UserDefaultsTaskRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsTaskRepository.swift; sourceTree = "<group>"; };
 		1C0EA38C21E37D8000BB7F7B /* EventCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventCell.swift; sourceTree = "<group>"; };
 		1C0EA38E21E3844B00BB7F7B /* EventCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EventCell.xib; sourceTree = "<group>"; };
-		1C0EA39221E42C2900BB7F7B /* SearchCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchCell.swift; sourceTree = "<group>"; };
 		1C184AE621C3F3EC00AC3A27 /* ReSports.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = ReSports.entitlements; sourceTree = "<group>"; };
 		1C184AE721C3F4B800AC3A27 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		1C5633FD21C40FE90027B074 /* Login.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Login.storyboard; sourceTree = "<group>"; };
@@ -143,7 +141,6 @@
 				1CD946B621BB8B78007B3B30 /* FindViewController.swift */,
 				1C0EA38C21E37D8000BB7F7B /* EventCell.swift */,
 				1C0EA38E21E3844B00BB7F7B /* EventCell.xib */,
-				1C0EA39221E42C2900BB7F7B /* SearchCell.swift */,
 			);
 			path = Find;
 			sourceTree = "<group>";
@@ -475,7 +472,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				1CD946B121BB868C007B3B30 /* OthersViewController.swift in Sources */,
-				1C0EA39321E42C2900BB7F7B /* SearchCell.swift in Sources */,
 				1CD946B521BB86E4007B3B30 /* LaunchViewController.swift in Sources */,
 				1C0EA36C21DB9DFB00BB7F7B /* TaskService.swift in Sources */,
 				1C56340321C425C20027B074 /* Credential.swift in Sources */,

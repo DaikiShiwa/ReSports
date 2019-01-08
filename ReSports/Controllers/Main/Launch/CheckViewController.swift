@@ -56,9 +56,10 @@ class CheckViewController: UIViewController, UITableViewDelegate, UITableViewDat
                           userDefaults.object(forKey: "gender") as! String,
                           userDefaults.object(forKey: "age") as! String,
                           userDefaults.object(forKey: "eventsName") as! String]//dueDay
-        detailArray[2] = [userDefaults.object(forKey: "eventsName") as! String,
-                          userDefaults.object(forKey: "eventsName") as! String,
-                          userDefaults.object(forKey: "eventsName") as! String]
+        detailArray[2] = [userDefaults.object(forKey: "eventsName") as! String,//latitude
+                          userDefaults.object(forKey: "eventsName") as! String,//longitude
+//                          userDefaults.object(forKey: "eventsName") as! String,//imageUrl
+                          userDefaults.object(forKey: "remarks") as! String]
 //        detailArray[1]
 //        self.tableView.register(UINib(nibName: "infoSecondCell", bundle: nil), forCellReuseIdentifier: "infoSecondCell")
     }
@@ -115,7 +116,11 @@ class CheckViewController: UIViewController, UITableViewDelegate, UITableViewDat
                                            "レベル": userDefaults.object(forKey: "level")!,
                                            "性別": userDefaults.object(forKey: "gender")!,
                                            "年齢": userDefaults.object(forKey: "age")!,
-                                           "応募期限": userDefaults.object(forKey: "dueDay")!]
+                                           "応募期限": userDefaults.object(forKey: "dueDay")!,
+                                           "緯度": userDefaults.object(forKey: "latitude")!,
+                                           "経度": userDefaults.object(forKey: "longitude")!,
+//                                           "写真": userDefaults.object(forKey: "imageUrl")!,
+                                           "備考": userDefaults.object(forKey: "remarks")!,]
         
         let uid = User.shared.getUid()
         db.collection("users").document(uid!).collection("events").addDocument(data: registerData)
