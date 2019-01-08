@@ -6,8 +6,13 @@
 //  Copyright © 2019 志波大輝. All rights reserved.
 //
 
-import Foundation
-//
-//class EventCell: {
-//    
-//}
+import UIKit
+
+class EventCell:UITableViewCell {
+
+    @IBOutlet weak var eventNameLabel: UILabel!
+    @IBOutlet weak var eventDayLabel: UILabel!
+    @IBOutlet weak var blackView: UIView!
+    @IBOutlet weak var eventImage: UIImageView!
+    
+}

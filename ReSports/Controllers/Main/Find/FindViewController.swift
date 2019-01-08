@@ -16,20 +16,38 @@ class FindViewController: UIViewController, UITableViewDelegate, UITableViewData
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        self.tableView.register(UINib(nibName: "EventCell", bundle: nil), forCellReuseIdentifier: "EventCell")
     }
     
-    
-    
-    
-    
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+        // Dispose of any resources that can be recreated.
+    }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        <#code#>
+        return 5
     }
     
+//    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+//        return 120
+//    }
+
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        <#code#>
+        if indexPath.row < 1 {
+            let cell = tableView.dequeueReusableCell(withIdentifier: "SearchCell") as! SearchCell
+            cell.searchBar.delegate = self as? UISearchBarDelegate
+            return cell
+        }
+        let cell = tableView.dequeueReusableCell(withIdentifier: "EventCell") as! EventCell
+        cell.eventNameLabel.text = "開催名"
+        cell.eventDayLabel.text = "開催日時"
+        cell.eventImage?.image = UIImage(named: "ariake")
+        
+        return cell
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        //
     }
     
     
