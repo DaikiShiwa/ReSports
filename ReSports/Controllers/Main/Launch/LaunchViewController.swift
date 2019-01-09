@@ -165,7 +165,7 @@ class LaunchViewController: FormViewController {
 //                        return
 //                    }
                     self.saveAll()
-                    self.performSegue(withIdentifier: "showToNextLaunchViewController", sender: nil)
+                    self.performSegue(withIdentifier: "showToDetailLaunchViewController", sender: nil)
                 }
         }
     }

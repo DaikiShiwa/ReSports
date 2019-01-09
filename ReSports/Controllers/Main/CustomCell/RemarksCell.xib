@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="160" id="U3Y-CC-fiE" customClass="RemarksCell" customModule="ReSports" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="389" height="160"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="U3Y-CC-fiE" id="65g-4z-ng4">
+                <rect key="frame" x="0.0" y="0.0" width="389" height="159.5"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="ViH-iQ-YvP">
+                        <rect key="frame" x="20" y="11" width="349" height="138"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                    </textView>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="ViH-iQ-YvP" firstAttribute="top" secondItem="65g-4z-ng4" secondAttribute="topMargin" id="P7y-Gi-uI4"/>
+                    <constraint firstItem="ViH-iQ-YvP" firstAttribute="leading" secondItem="65g-4z-ng4" secondAttribute="leadingMargin" id="aat-yL-AiW"/>
+                    <constraint firstAttribute="trailingMargin" secondItem="ViH-iQ-YvP" secondAttribute="trailing" id="bUZ-bo-6ra"/>
+                    <constraint firstAttribute="bottomMargin" secondItem="ViH-iQ-YvP" secondAttribute="bottom" id="uAg-1I-rff"/>
+                </constraints>
+            </tableViewCellContentView>
+            <connections>
+                <outlet property="remarksTextView" destination="ViH-iQ-YvP" id="9Gp-Qm-kIc"/>
+            </connections>
+            <point key="canvasLocation" x="492" y="-14.392803598200901"/>
+        </tableViewCell>
+    </objects>
+</document>

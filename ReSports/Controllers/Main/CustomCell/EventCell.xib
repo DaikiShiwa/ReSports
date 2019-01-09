@@ -17,7 +17,7 @@
                 <rect key="frame" x="0.0" y="0.0" width="345" height="149.5"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="XdZ-Nl-FkO">
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="ariake" translatesAutoresizingMaskIntoConstraints="NO" id="XdZ-Nl-FkO">
                         <rect key="frame" x="0.0" y="0.0" width="345" height="100"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     </imageView>
@@ -70,4 +70,7 @@
             <point key="canvasLocation" x="-188" y="188.00599700149925"/>
         </tableViewCell>
     </objects>
+    <resources>
+        <image name="ariake" width="199.19999694824219" height="149.60000610351562"/>
+    </resources>
 </document>

@@ -74,7 +74,7 @@
                     </view>
                     <navigationItem key="navigationItem" title="開催登録" id="LA7-pS-BNc"/>
                     <connections>
-                        <segue destination="A51-Hz-sg7" kind="show" identifier="showToNextLaunchViewController" id="YD2-RR-SIW"/>
+                        <segue destination="Ha1-2z-6R9" kind="show" identifier="showToDetailLaunchViewController" id="bwF-iy-CpV"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8as-kU-fRv" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -129,6 +129,7 @@
                                 <constraints>
                                     <constraint firstAttribute="height" constant="120" id="tAo-3I-lra"/>
                                 </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hXS-TC-azY">
@@ -141,7 +142,6 @@
                                 <state key="normal" title="確認"/>
                                 <connections>
                                     <action selector="checkButton:" destination="A51-Hz-sg7" eventType="touchUpInside" id="7uA-Fk-IIT"/>
-                                    <segue destination="7lw-Tf-Pz2" kind="show" identifier="showToCheckViewController" id="Aeg-ay-lSm"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -185,7 +185,64 @@
                     </connections>
                 </tapGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="1560.8" y="1576.4617691154424"/>
+            <point key="canvasLocation" x="1580" y="2420"/>
+        </scene>
+        <!--詳細情報-->
+        <scene sceneID="tBI-BR-wkJ">
+            <objects>
+                <viewController id="Ha1-2z-6R9" customClass="DetailLaunchViewController" customModule="ReSports" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="9m0-Wq-u9z">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="B5Q-Vx-yyx">
+                                <rect key="frame" x="0.0" y="20" width="375" height="547"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="vMw-Ra-mEU">
+                                        <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="vMw-Ra-mEU" id="1Xj-fF-FVU">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="B4E-uB-et2">
+                                <rect key="frame" x="0.0" y="597" width="375" height="40"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="loe-5q-uzZ"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <state key="normal" title="確認"/>
+                                <connections>
+                                    <action selector="didTouchCheckButton:" destination="Ha1-2z-6R9" eventType="touchUpInside" id="g8B-Su-lqb"/>
+                                    <segue destination="7lw-Tf-Pz2" kind="show" identifier="showToCheckViewController" id="Gkc-s5-xKO"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" red="0.93333333333333335" green="0.93333333333333335" blue="0.95294117647058818" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="B5Q-Vx-yyx" firstAttribute="trailing" secondItem="PPw-Ai-2yX" secondAttribute="trailing" id="KW1-0x-b9q"/>
+                            <constraint firstItem="B4E-uB-et2" firstAttribute="leading" secondItem="PPw-Ai-2yX" secondAttribute="leading" id="SoH-KT-kMC"/>
+                            <constraint firstItem="B4E-uB-et2" firstAttribute="top" secondItem="B5Q-Vx-yyx" secondAttribute="bottom" constant="30" id="UXa-wG-7WP"/>
+                            <constraint firstItem="B5Q-Vx-yyx" firstAttribute="leading" secondItem="PPw-Ai-2yX" secondAttribute="leading" id="c7K-1I-Bn4"/>
+                            <constraint firstItem="B5Q-Vx-yyx" firstAttribute="top" secondItem="PPw-Ai-2yX" secondAttribute="top" id="f0V-Bo-njo"/>
+                            <constraint firstItem="PPw-Ai-2yX" firstAttribute="trailing" secondItem="B4E-uB-et2" secondAttribute="trailing" id="goy-9b-dWb"/>
+                            <constraint firstItem="PPw-Ai-2yX" firstAttribute="bottom" secondItem="B4E-uB-et2" secondAttribute="bottom" constant="30" id="tFX-Lv-yNH"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="PPw-Ai-2yX"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="詳細情報" id="4pV-zq-Tll"/>
+                    <connections>
+                        <outlet property="tableView" destination="B5Q-Vx-yyx" id="hrU-CK-u33"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="XJc-tA-whN" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1580" y="1576"/>
         </scene>
         <!--開催内容の確認-->
         <scene sceneID="JIA-yS-i1z">
@@ -498,6 +555,7 @@
         <image name="share" width="30" height="30"/>
     </resources>
     <inferredMetricsTieBreakers>
+        <segue reference="Gkc-s5-xKO"/>
         <segue reference="cpO-Dy-x36"/>
     </inferredMetricsTieBreakers>
 </document>
