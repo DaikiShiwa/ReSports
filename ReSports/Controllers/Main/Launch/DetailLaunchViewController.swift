@@ -16,16 +16,14 @@ class DetailLaunchViewController: UIViewController, UITableViewDelegate, UITable
     
     let sectionTitle:[String] = ["会場住所", "イベントトップ画像", "備考"]
     
-    var didChangedImage = false
-    
     override func viewDidLoad() {
         super.viewDidLoad()
 
         tableView.delegate = self
         tableView.dataSource = self
-//
-//        let tapRecognizer = UITapGestureRecognizer(target: self, action: #selector(tapGesture))
-//        self.view.addGestureRecognizer(tapRecognizer)
+
+        let tapRecognizer = UITapGestureRecognizer(target: self, action: #selector(tapGesture))
+        self.view.addGestureRecognizer(tapRecognizer)
 
         self.tableView.register(UINib(nibName: "MapViewCell", bundle: nil), forCellReuseIdentifier: "MapViewCell")
         self.tableView.register(UINib(nibName: "ImageCell", bundle: nil), forCellReuseIdentifier: "ImageCell")

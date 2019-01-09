@@ -13,7 +13,7 @@ class ImageCell:UITableViewCell, UIImagePickerControllerDelegate, UINavigationCo
     @IBOutlet weak var todoImageview: UIImageView!
     
     var didChangedImage = false
-    
+
     @IBAction func didTouchImageButton(_ sender: Any) {
         let alert = UIAlertController(title:"", message: "選択してください", preferredStyle: UIAlertController.Style.actionSheet)
         alert.addAction(UIAlertAction(title: "カメラ", style: UIAlertAction.Style.default, handler: {
@@ -31,7 +31,6 @@ class ImageCell:UITableViewCell, UIImagePickerControllerDelegate, UINavigationCo
             (action: UIAlertAction!) in
             print("キャンセル")
         }))
-        
 //        self.present(alert, animated: true, completion: nil)
     }
     
@@ -50,7 +49,7 @@ class ImageCell:UITableViewCell, UIImagePickerControllerDelegate, UINavigationCo
         
         if let pickedImage = info[.originalImage] as? UIImage {
             todoImageview.contentMode = .scaleAspectFill
-            todoImageview.image = pickedImage.resize(size: CGSize(width: 300, height: 200))
+            todoImageview.image = pickedImage.resize(size: CGSize(width: 375, height: 160))
             didChangedImage = true
         }
         picker.dismiss(animated: true, completion: nil)
