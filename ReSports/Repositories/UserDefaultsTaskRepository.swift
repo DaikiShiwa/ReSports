@@ -8,7 +8,7 @@
 
 import Foundation
 
-class UserDefaultsTaskRepository: TaskRepositoryProtocol {
+class UserDefaultsTaskRepository: EventRepositoryProtocol {
     
     let userDefaults = UserDefaults.standard
     
@@ -16,8 +16,8 @@ class UserDefaultsTaskRepository: TaskRepositoryProtocol {
         // シリアル化
         do {
             let data = try PropertyListEncoder().encode(tasks)
-            // UserDefaultsにtasksという名前で保存
-            userDefaults.set(data, forKey: "tasks")
+            // UserDefaultsにeventsという名前で保存
+            userDefaults.set(data, forKey: "events")
         } catch {
             fatalError ("Save Faild.")
         }

@@ -18,6 +18,7 @@ class FindViewController: UIViewController, UITableViewDelegate, UITableViewData
     
     let db = Firestore.firestore()
     
+    let eventService = EventService.shared
     var events: [Event] = []
     
     override func viewDidLoad() {
@@ -57,8 +58,9 @@ class FindViewController: UIViewController, UITableViewDelegate, UITableViewData
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         self.tableView.deselectRow(at: indexPath, animated: true)
         let applicationViewController = storyboard?.instantiateViewController(withIdentifier: "ApplicationViewController") as! ApplicationViewController
-//        applicationViewController.
-        
+        applicationViewController.selectedEvent = eventService.getTask(at: indexPath.row)
+
+        self.navigationController?.pushViewController(applicationViewController, animated: true)
     }
     
     private func loadEvents(completion: @escaping (([Event]) -> Void)) {

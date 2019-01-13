@@ -30,7 +30,7 @@ class EventCell:UITableViewCell {
         dateFormatter.locale = Locale(identifier: "ja_JP")
         dateFormatter.doesRelativeDateFormatting = true
         eventDayLabel.text = dateFormatter.string(from: event.eventDay!)
-        
+
         eventNameLabel.text = event.eventsName
         sportsName.text = event.sportsName
 //        eventImage.image = user.profile

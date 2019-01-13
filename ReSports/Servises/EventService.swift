@@ -1,5 +1,5 @@
 //
-//  TaskService.swift
+//  EventService.swift
 //  ReSports
 //
 //  Created by 志波大輝 on 2019/01/01.
@@ -11,20 +11,20 @@ import UIKit
 import FirebaseStorage
 import Nuke
 
-protocol TaskServiceDelegate: class {
+protocol EventServiceDelegate: class {
     func saved()
     func loaded()
 }
 
-class TaskService {
-    static var shared = TaskService()
+class EventService {
+    static var shared = EventService()
     private var events: [Event] = []
     
     // タスクを保存する役割を担っている
     // どこに保存するのかは分離している
-    private var taskRepository: TaskRepositoryProtocol = FirestoreTaskRepository()
+    private var EventRepository: EventRepositoryProtocol = FirestoreEventRepository()
     
-    weak var delegate: TaskServiceDelegate?
+    weak var delegate: EventServiceDelegate?
     
 //    private init() {
 //
@@ -54,7 +54,7 @@ class TaskService {
     }
     
     func save () {
-        taskRepository.save(events) {
+        EventRepository.save(events) {
             events = events.filter({ (task) -> Bool in
                 return task.deleted == false
             })
@@ -65,7 +65,7 @@ class TaskService {
     }
     
     func load() {
-        taskRepository.load(completion: { (events) in
+        EventRepository.load(completion: { (events) in
             self.events = events
             // デリゲートでフック。読み出したら実行
             self.delegate?.loaded()

@@ -1,5 +1,5 @@
 //
-//  FirestoreTaskRepository.swift
+//  FirestoreEventRepository.swift
 //  ReSports
 //
 //  Created by 志波大輝 on 2019/01/01.
@@ -9,7 +9,7 @@
 import Foundation
 import FirebaseFirestore
 
-class FirestoreTaskRepository: TaskRepositoryProtocol {
+class FirestoreEventRepository: EventRepositoryProtocol {
     
     let db = Firestore.firestore()
     

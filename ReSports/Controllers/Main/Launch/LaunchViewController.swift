@@ -72,21 +72,6 @@ class LaunchViewController: FormViewController {
                 .onPresent{ _, to in
                     to.view.tintColor = .orange
             }
-//            <<< PushRow<String>("memberCount") {
-//                $0.title = "募集人数"
-////                $0.options = []
-////                for i in 1...10{
-////                    $0.options?.append("\(i)")
-////                }
-//                $0.options = ["１名","２名","３名","４名","５名","６名","７名","８名",]
-//                $0.value = ""
-////                $0.selectorTitle = "指定なし"
-//                }.onPresent{ from, to in
-//                    to.dismissOnSelection = true
-//                    to.dismissOnChange = false
-//                }.onChange {row in
-//                    self.memberCount = row.value ?? ""
-//                }
             <<< SwitchRow() {
                 $0.title = "募集制限"
                 $0.value = false
@@ -174,7 +159,6 @@ class LaunchViewController: FormViewController {
         UserDefaults.standard.set(sportsName, forKey: "sportsName")
         UserDefaults.standard.set(eventDay, forKey: "eventDay")
         UserDefaults.standard.set(playTime, forKey: "playTime")
-//        UserDefaults.standard.set(memberCount, forKey: "memberCount")
         UserDefaults.standard.set(level, forKey: "level")
         UserDefaults.standard.set(gender, forKey: "gender")
         UserDefaults.standard.set(age, forKey: "age")
@@ -184,7 +168,6 @@ class LaunchViewController: FormViewController {
         print("スポーツ種目", sportsName)
         print("開催日時", eventDay)
         print("プレイ時間", playTime)
-//        print("募集人数", memberCount)
         print("レベル", level)
         print("性別", gender)
         print("年齢", age)
