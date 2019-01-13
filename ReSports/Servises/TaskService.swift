@@ -99,10 +99,10 @@ class TaskService {
         }
     }
     
-    func loadImage(task: Event, imageView: UIImageView) {
-        guard let url = task.imageUrl else {
-            return
-        }
-        Nuke.loadImage(with: URL(string: url)!, into: imageView)
-    }
+//    func loadImage(task: Event, imageView: UIImageView) {
+//        guard let url = task.imageUrl else {
+//            return
+//        }
+//        Nuke.loadImage(with: URL(string: url)!, into: imageView)
+//    }
 }

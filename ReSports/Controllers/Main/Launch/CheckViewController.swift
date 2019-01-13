@@ -13,17 +13,9 @@ class CheckViewController: UIViewController, UITableViewDelegate, UITableViewDat
     
     let db = Firestore.firestore()
     
-    // ユーザー毎のデータベースへの参照を取得する
-    private func getCollectionRef () -> CollectionReference {
-        guard let uid = User.shared.getUid() else {
-            fatalError ("Uidを取得出来ませんでした。")
-        }
-        return db.collection("users").document(uid).collection("events")
-    }
-    
     @IBOutlet weak var tableView: UITableView!
     
-    let sectionTitle:[String] = ["開催内容", "基本情報", "詳細情報"]
+    let sectionTitle:[String] = ["開催内容", "基本情報", "地図", "備考"]
     var titleArray = [[String]]()
     var detailArray = [[String]]()
     var selectedSection = ""
@@ -37,37 +29,34 @@ class CheckViewController: UIViewController, UITableViewDelegate, UITableViewDat
         tableView.delegate = self
         tableView.dataSource = self
         
-        for _ in 0 ... 2{
+        self.tableView.register(UINib(nibName: "InfoCell", bundle: nil), forCellReuseIdentifier: "InfoCell")
+        
+        for _ in 0 ... 3{
             titleArray.append([])
         }
         titleArray[0] = ["開催名", "スポーツ種目"]
-        titleArray[1] = ["開催日時", "プレイ時間", "募集人数", "レベル", "性別", "年齢", "応募期限"]
-        titleArray[2] = ["地図", "写真", "備考"]
+        titleArray[1] = ["開催日時", "プレイ時間", "レベル", "性別", "年齢", "応募期限"]
+        titleArray[2] = ["地図"]
+        titleArray[3] = ["備考"]
         
-        for _ in 0 ... 9{
+        for _ in 0 ... 3{
             detailArray.append([])
         }
         detailArray[0] = [userDefaults.object(forKey: "eventsName") as! String,
                           userDefaults.object(forKey: "sportsName") as! String]
         detailArray[1] = [userDefaults.object(forKey: "eventsName") as! String,//eventDay
                           userDefaults.object(forKey: "playTime") as! String,
-                          userDefaults.object(forKey: "memberCount") as! String,
+//                          userDefaults.object(forKey: "memberCount") as! String,
                           userDefaults.object(forKey: "level") as! String,
                           userDefaults.object(forKey: "gender") as! String,
                           userDefaults.object(forKey: "age") as! String,
                           userDefaults.object(forKey: "eventsName") as! String]//dueDay
-        detailArray[2] = [userDefaults.object(forKey: "eventsName") as! String,//latitude
-                          userDefaults.object(forKey: "eventsName") as! String,//longitude
-//                          userDefaults.object(forKey: "eventsName") as! String,//imageUrl
-                          userDefaults.object(forKey: "remarks") as! String]
+        detailArray[2] = [userDefaults.object(forKey: "eventsName") as! String]//latitude
+//                          userDefaults.object(forKey: "eventsName") as! String]//longitude
+        detailArray[3] = [userDefaults.object(forKey: "remarks") as! String]
 //        detailArray[1]
 //        self.tableView.register(UINib(nibName: "infoSecondCell", bundle: nil), forCellReuseIdentifier: "infoSecondCell")
     }
-    
-//    override func viewWillAppear(_ animated: Bool) {
-//        super.viewWillAppear(animated)
-////        tableView.reloadData()
-//    }
     
     func numberOfSections(in tableView: UITableView) -> Int {
         return sectionTitle.count
@@ -85,12 +74,12 @@ class CheckViewController: UIViewController, UITableViewDelegate, UITableViewDat
         return titleArray[section].count
     }
     
-    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 40
-    }
+//    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+//        return 40
+//    }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-//        if indexPath.row < 10 {
+        if indexPath.section < 2 {
             //セルにテキストを出力する
             let cell = tableView.dequeueReusableCell(withIdentifier: "InfoCell") as! InfoCell
             //セルに表示する値（Labelの文字）を設定する
@@ -98,9 +87,16 @@ class CheckViewController: UIViewController, UITableViewDelegate, UITableViewDat
             cell.detailLabel?.text = self.detailArray[indexPath.section][indexPath.row]
         
             return cell
-//        }
-//        let cell = tableView.dequeueReusableCell(withIdentifier: , for: )
+        } else if indexPath.section < 3 {
+            let cell = tableView.dequeueReusableCell(withIdentifier: "MapViewCell") as! MapViewCell
+            cell.viewDidLoad()
+            return cell
+        } else {
+            let cell = tableView.dequeueReusableCell(withIdentifier: "RemarksCell") as! RemarksCell
+            cell.viewDidLoad()
+            return cell
         }
+    }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         selectedSection = sectionTitle[indexPath.section]
@@ -108,22 +104,22 @@ class CheckViewController: UIViewController, UITableViewDelegate, UITableViewDat
     }
     
     @IBAction func registerButton(_ sender: Any) {
-        let registerData: [String: Any] = ["開催名": userDefaults.object(forKey: "eventsName")!,
-                                           "スポーツ種目": userDefaults.object(forKey: "sportsName")!,
-                                           "開催日時": userDefaults.object(forKey: "eventDay")!,
-                                           "プレイ時間": userDefaults.object(forKey: "playTime")!,
-                                           "募集人数": userDefaults.object(forKey: "memberCount")!,
-                                           "レベル": userDefaults.object(forKey: "level")!,
-                                           "性別": userDefaults.object(forKey: "gender")!,
-                                           "年齢": userDefaults.object(forKey: "age")!,
-                                           "応募期限": userDefaults.object(forKey: "dueDay")!,
-                                           "緯度": userDefaults.object(forKey: "latitude")!,
-                                           "経度": userDefaults.object(forKey: "longitude")!,
+        let registerData: [String: Any] = ["eventsName": userDefaults.object(forKey: "eventsName")!,
+                                           "sportsName": userDefaults.object(forKey: "sportsName")!,
+                                           "eventDay": userDefaults.object(forKey: "eventDay")!,
+                                           "playTime": userDefaults.object(forKey: "playTime")!,
+//                                           "memberCount": userDefaults.object(forKey: "memberCount")!,
+                                           "level": userDefaults.object(forKey: "level")!,
+                                           "gender": userDefaults.object(forKey: "gender")!,
+                                           "age": userDefaults.object(forKey: "age")!,
+                                           "dueDay": userDefaults.object(forKey: "dueDay")!,
+                                           "latitude": userDefaults.object(forKey: "latitude")!,
+                                           "longitude": userDefaults.object(forKey: "longitude")!,
 //                                           "写真": userDefaults.object(forKey: "imageUrl")!,
-                                           "備考": userDefaults.object(forKey: "remarks")!,]
+                                           "remarks": userDefaults.object(forKey: "remarks")!]
         
-        let uid = User.shared.getUid()
-        db.collection("users").document(uid!).collection("events").addDocument(data: registerData)
+//        let uid = User.shared.getUid()  .collection("users").document(uid!)
+        db.collection("events").addDocument(data: registerData)
         
         self.showAlert("")
         self.performSegue(withIdentifier: "showToLaunchViewController", sender: nil)

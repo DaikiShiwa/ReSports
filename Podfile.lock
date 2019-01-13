@@ -148,6 +148,7 @@ PODS:
   - nanopb/decode (0.3.901)
   - nanopb/encode (0.3.901)
   - Nuke (7.5.1)
+  - PKHUD (5.2.0)
   - Protobuf (3.6.1)
   - RAMAnimatedTabBarController (4.0.1)
   - TwitterCore (3.2.0)
@@ -167,6 +168,7 @@ DEPENDENCIES:
   - GoogleMaps
   - GooglePlaces
   - Nuke
+  - PKHUD
   - RAMAnimatedTabBarController
 
 SPEC REPOS:
@@ -198,6 +200,7 @@ SPEC REPOS:
     - leveldb-library
     - nanopb
     - Nuke
+    - PKHUD
     - Protobuf
     - RAMAnimatedTabBarController
     - TwitterCore
@@ -231,11 +234,12 @@ SPEC CHECKSUMS:
   leveldb-library: 08cba283675b7ed2d99629a4bc5fd052cd2bb6a5
   nanopb: 2901f78ea1b7b4015c860c2fdd1ea2fee1a18d48
   Nuke: 3814db501e55f17951451839c726ffd91641e9a5
+  PKHUD: dd5357ac65f26115c35c4a68e9b328053326c5fe
   Protobuf: 1eb9700044745f00181c136ef21b8ff3ad5a0fd5
   RAMAnimatedTabBarController: 677d6f7ec7e88b1089486f4db49b0a5067e8ad1c
   TwitterCore: 8cbc9ad34d91c63a0035ea05bfbfc0d7ca72a28c
   TwitterKit: 5e4f41d70b9abdb41df5467f52d7aa2c0fd26ebb
 
-PODFILE CHECKSUM: 2db8aecf72263053c0ae71e2f05eb3d58a41d2ba
+PODFILE CHECKSUM: cc90e8d4baaf8996f8ea5de2d84de0c462d1dabb
 
 COCOAPODS: 1.5.3

@@ -28,6 +28,7 @@ class MapViewCell:UITableViewCell, GMSMapViewDelegate, CLLocationManagerDelegate
     private var initView: Bool = false
     
     func viewDidLoad() {
+
         self.marker.position.latitude = self.defaultLatitude
         self.marker.position.longitude = self.defaultLongitude
         
