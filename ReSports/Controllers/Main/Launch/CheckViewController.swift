@@ -15,7 +15,7 @@ class CheckViewController: UIViewController, UITableViewDelegate, UITableViewDat
     
     @IBOutlet weak var tableView: UITableView!
     
-    let sectionTitle:[String] = ["開催内容", "基本情報", "地図", "備考"]
+    let sectionTitle:[String] = ["開催内容", "基本情報", "詳細情報"]
     var titleArray = [[String]]()
     var detailArray = [[String]]()
     var selectedSection = ""
@@ -31,29 +31,26 @@ class CheckViewController: UIViewController, UITableViewDelegate, UITableViewDat
         
         self.tableView.register(UINib(nibName: "InfoCell", bundle: nil), forCellReuseIdentifier: "InfoCell")
         
-        for _ in 0 ... 3{
+        for _ in 0 ... 2{
             titleArray.append([])
         }
         titleArray[0] = ["開催名", "スポーツ種目"]
         titleArray[1] = ["開催日時", "プレイ時間", "レベル", "性別", "年齢", "応募期限"]
-        titleArray[2] = ["地図"]
-        titleArray[3] = ["備考"]
+        titleArray[2] = ["住所", "備考"]
         
-        for _ in 0 ... 3{
+        for _ in 0 ... 2{
             detailArray.append([])
         }
         detailArray[0] = [userDefaults.object(forKey: "eventsName") as! String,
                           userDefaults.object(forKey: "sportsName") as! String]
         detailArray[1] = [userDefaults.object(forKey: "eventsName") as! String,//eventDay
                           userDefaults.object(forKey: "playTime") as! String,
-//                          userDefaults.object(forKey: "memberCount") as! String,
                           userDefaults.object(forKey: "level") as! String,
                           userDefaults.object(forKey: "gender") as! String,
                           userDefaults.object(forKey: "age") as! String,
                           userDefaults.object(forKey: "eventsName") as! String]//dueDay
-        detailArray[2] = [userDefaults.object(forKey: "eventsName") as! String]//latitude
-//                          userDefaults.object(forKey: "eventsName") as! String]//longitude
-        detailArray[3] = [userDefaults.object(forKey: "remarks") as! String]
+        detailArray[2] = [userDefaults.object(forKey: "address") as! String,
+                          userDefaults.object(forKey: "remarks") as! String]
 //        detailArray[1]
 //        self.tableView.register(UINib(nibName: "infoSecondCell", bundle: nil), forCellReuseIdentifier: "infoSecondCell")
     }
@@ -79,7 +76,7 @@ class CheckViewController: UIViewController, UITableViewDelegate, UITableViewDat
 //    }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        if indexPath.section < 2 {
+//        if indexPath.section < 2 {
             //セルにテキストを出力する
             let cell = tableView.dequeueReusableCell(withIdentifier: "InfoCell") as! InfoCell
             //セルに表示する値（Labelの文字）を設定する
@@ -87,15 +84,15 @@ class CheckViewController: UIViewController, UITableViewDelegate, UITableViewDat
             cell.detailLabel?.text = self.detailArray[indexPath.section][indexPath.row]
         
             return cell
-        } else if indexPath.section < 3 {
-            let cell = tableView.dequeueReusableCell(withIdentifier: "MapViewCell") as! MapViewCell
-            cell.viewDidLoad()
-            return cell
-        } else {
-            let cell = tableView.dequeueReusableCell(withIdentifier: "RemarksCell") as! RemarksCell
-            cell.viewDidLoad()
-            return cell
-        }
+//        } else if indexPath.section < 3 {
+//            let cell = tableView.dequeueReusableCell(withIdentifier: "MapViewCell") as! MapViewCell
+//            cell.viewDidLoad()
+//            return cell
+//        }
+//            let cell = tableView.dequeueReusableCell(withIdentifier: "RemarksCell") as! RemarksCell
+//            cell.viewDidLoad()
+//            return cell
+        
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
@@ -115,7 +112,7 @@ class CheckViewController: UIViewController, UITableViewDelegate, UITableViewDat
                                            "dueDay": userDefaults.object(forKey: "dueDay")!,
                                            "latitude": userDefaults.object(forKey: "latitude")!,
                                            "longitude": userDefaults.object(forKey: "longitude")!,
-//                                           "写真": userDefaults.object(forKey: "imageUrl")!,
+                                           "address": userDefaults.object(forKey: "address")!,
                                            "remarks": userDefaults.object(forKey: "remarks")!]
         
 //        let uid = User.shared.getUid()  .collection("users").document(uid!)

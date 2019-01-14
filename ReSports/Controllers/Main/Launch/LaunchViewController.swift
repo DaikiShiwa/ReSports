@@ -102,7 +102,6 @@ class LaunchViewController: FormViewController {
             <<< MultipleSelectorRow<String>("age") {
                 $0.title = "年齢"
                 $0.options = ["10代","20代","30代","40代","50代","60代","70代〜"]
-//                options.joined(separator: ", ")
 //                }.onChange {row in
 //                    self.age = row.value?.joined(separator: ", ") ??
 //                    self.age = row.value ?? ""
@@ -148,7 +147,7 @@ class LaunchViewController: FormViewController {
 //                        return
 //                    }
                     self.saveAll()
-                    self.performSegue(withIdentifier: "showToDetailLaunchViewController", sender: nil)
+                    self.performSegue(withIdentifier: "showToNextLaunchViewController", sender: nil)
                 }
         }
     }

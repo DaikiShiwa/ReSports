@@ -11,6 +11,8 @@
 		1C08CAC021E64703008A6DB6 /* DetailLaunchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C08CABF21E64703008A6DB6 /* DetailLaunchViewController.swift */; };
 		1C08CAC221EA1C78008A6DB6 /* ApplicationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C08CAC121EA1C78008A6DB6 /* ApplicationViewController.swift */; };
 		1C08CAC421EB7EEE008A6DB6 /* InfoCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1C08CAC321EB7EEE008A6DB6 /* InfoCell.xib */; };
+		1C08CAC621EC7BC2008A6DB6 /* MypageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C08CAC521EC7BC2008A6DB6 /* MypageViewController.swift */; };
+		1C08CAC821ECD2B8008A6DB6 /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1C08CAC721ECD2B8008A6DB6 /* MessageUI.framework */; };
 		1C0960CD21C69EF600468CF8 /* key.plist in Resources */ = {isa = PBXBuildFile; fileRef = 1C0960CC21C69EF600468CF8 /* key.plist */; };
 		1C0960CF21C69F4300468CF8 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 1C0960CE21C69F4200468CF8 /* GoogleService-Info.plist */; };
 		1C0D257D21C390D9008D4883 /* Spot.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C0D257C21C390D9008D4883 /* Spot.swift */; };
@@ -42,8 +44,6 @@
 		1CD9469821B9759F007B3B30 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1CD9469621B9759F007B3B30 /* Main.storyboard */; };
 		1CD9469A21B975A1007B3B30 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1CD9469921B975A1007B3B30 /* Assets.xcassets */; };
 		1CD946AF21BB864B007B3B30 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CD946AE21BB864B007B3B30 /* MapViewController.swift */; };
-		1CD946B121BB868C007B3B30 /* OthersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CD946B021BB868C007B3B30 /* OthersViewController.swift */; };
-		1CD946B321BB86BA007B3B30 /* MessageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CD946B221BB86BA007B3B30 /* MessageViewController.swift */; };
 		1CD946B521BB86E4007B3B30 /* LaunchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CD946B421BB86E4007B3B30 /* LaunchViewController.swift */; };
 		1CD946B721BB8B78007B3B30 /* FindViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CD946B621BB8B78007B3B30 /* FindViewController.swift */; };
 /* End PBXBuildFile section */
@@ -52,6 +52,8 @@
 		1C08CABF21E64703008A6DB6 /* DetailLaunchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailLaunchViewController.swift; sourceTree = "<group>"; };
 		1C08CAC121EA1C78008A6DB6 /* ApplicationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApplicationViewController.swift; sourceTree = "<group>"; };
 		1C08CAC321EB7EEE008A6DB6 /* InfoCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = InfoCell.xib; sourceTree = "<group>"; };
+		1C08CAC521EC7BC2008A6DB6 /* MypageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MypageViewController.swift; sourceTree = "<group>"; };
+		1C08CAC721ECD2B8008A6DB6 /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
 		1C0960CC21C69EF600468CF8 /* key.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = key.plist; sourceTree = "<group>"; };
 		1C0960CE21C69F4200468CF8 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		1C0D257C21C390D9008D4883 /* Spot.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Spot.swift; sourceTree = "<group>"; };
@@ -86,8 +88,6 @@
 		1CD9469921B975A1007B3B30 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		1CD9469E21B975A1007B3B30 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1CD946AE21BB864B007B3B30 /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
-		1CD946B021BB868C007B3B30 /* OthersViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OthersViewController.swift; sourceTree = "<group>"; };
-		1CD946B221BB86BA007B3B30 /* MessageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageViewController.swift; sourceTree = "<group>"; };
 		1CD946B421BB86E4007B3B30 /* LaunchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchViewController.swift; sourceTree = "<group>"; };
 		1CD946B621BB8B78007B3B30 /* FindViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FindViewController.swift; sourceTree = "<group>"; };
 		29685DD933BEF90002DC3500 /* Pods-ReSports.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ReSports.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ReSports/Pods-ReSports.debug.xcconfig"; sourceTree = "<group>"; };
@@ -100,6 +100,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1C08CAC821ECD2B8008A6DB6 /* MessageUI.framework in Frameworks */,
 				0FADE0DB536BB57BD7D6D2EA /* Pods_ReSports.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -139,8 +140,8 @@
 			children = (
 				1CD946B421BB86E4007B3B30 /* LaunchViewController.swift */,
 				1C0EA36E21DBA63100BB7F7B /* NextLaunchViewController.swift */,
-				1C08CABF21E64703008A6DB6 /* DetailLaunchViewController.swift */,
 				1C0EA37821DC72E900BB7F7B /* CheckViewController.swift */,
+				1C08CABF21E64703008A6DB6 /* DetailLaunchViewController.swift */,
 			);
 			path = Launch;
 			sourceTree = "<group>";
@@ -162,20 +163,12 @@
 			path = Find;
 			sourceTree = "<group>";
 		};
-		1C0EA38321E07A0B00BB7F7B /* Message */ = {
+		1C0EA38421E07A1B00BB7F7B /* Mypage */ = {
 			isa = PBXGroup;
 			children = (
-				1CD946B221BB86BA007B3B30 /* MessageViewController.swift */,
+				1C08CAC521EC7BC2008A6DB6 /* MypageViewController.swift */,
 			);
-			path = Message;
-			sourceTree = "<group>";
-		};
-		1C0EA38421E07A1B00BB7F7B /* Others */ = {
-			isa = PBXGroup;
-			children = (
-				1CD946B021BB868C007B3B30 /* OthersViewController.swift */,
-			);
-			path = Others;
+			path = Mypage;
 			sourceTree = "<group>";
 		};
 		1C0EA39521E63A5100BB7F7B /* CustomCell */ = {
@@ -286,8 +279,7 @@
 				1C0EA38221E079F700BB7F7B /* Find */,
 				1C0EA38121E079E500BB7F7B /* Map */,
 				1C0EA36D21DBA5F800BB7F7B /* Launch */,
-				1C0EA38321E07A0B00BB7F7B /* Message */,
-				1C0EA38421E07A1B00BB7F7B /* Others */,
+				1C0EA38421E07A1B00BB7F7B /* Mypage */,
 			);
 			path = Main;
 			sourceTree = "<group>";
@@ -295,6 +287,7 @@
 		33E1DE8E8E502E321BD12FB9 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				1C08CAC721ECD2B8008A6DB6 /* MessageUI.framework */,
 				CF2B66DA6F6BF4D252F2D1FC /* Pods_ReSports.framework */,
 			);
 			name = Frameworks;
@@ -512,7 +505,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1CD946B121BB868C007B3B30 /* OthersViewController.swift in Sources */,
 				1CD946B521BB86E4007B3B30 /* LaunchViewController.swift in Sources */,
 				1C0EA36C21DB9DFB00BB7F7B /* EventService.swift in Sources */,
 				1C56340321C425C20027B074 /* Credential.swift in Sources */,
@@ -521,7 +513,6 @@
 				1CD946AF21BB864B007B3B30 /* MapViewController.swift in Sources */,
 				1C0EA3A321E63BB600BB7F7B /* RemarksCell.swift in Sources */,
 				1C0EA36921DB96DD00BB7F7B /* FirestoreTaskRepository.swift in Sources */,
-				1CD946B321BB86BA007B3B30 /* MessageViewController.swift in Sources */,
 				1C0EA39B21E63B4700BB7F7B /* ImageCell.swift in Sources */,
 				1C184AE821C3F4B800AC3A27 /* LoginViewController.swift in Sources */,
 				1C56340821C42BE60027B074 /* CreateViewController.swift in Sources */,
@@ -532,6 +523,7 @@
 				1C0EA37921DC72E900BB7F7B /* CheckViewController.swift in Sources */,
 				1C0D257D21C390D9008D4883 /* Spot.swift in Sources */,
 				1C0EA3A121E63B9300BB7F7B /* MapViewCell.swift in Sources */,
+				1C08CAC621EC7BC2008A6DB6 /* MypageViewController.swift in Sources */,
 				1C0EA36721DB969100BB7F7B /* EventRepositoryProtocol.swift in Sources */,
 				1CD946B721BB8B78007B3B30 /* FindViewController.swift in Sources */,
 				1C0EA36221DB90EB00BB7F7B /* UIImage.swift in Sources */,

@@ -8,7 +8,6 @@
 
 import UIKit
 import Firebase
-import FBSDKLoginKit
 import FirebaseFirestore
 import PKHUD
 
@@ -18,7 +17,7 @@ class FindViewController: UIViewController, UITableViewDelegate, UITableViewData
     
     let db = Firestore.firestore()
     
-    let eventService = EventService.shared
+//    let eventService = EventService.shared
     var events: [Event] = []
     
     override func viewDidLoad() {
@@ -58,7 +57,7 @@ class FindViewController: UIViewController, UITableViewDelegate, UITableViewData
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         self.tableView.deselectRow(at: indexPath, animated: true)
         let applicationViewController = storyboard?.instantiateViewController(withIdentifier: "ApplicationViewController") as! ApplicationViewController
-        applicationViewController.selectedEvent = eventService.getTask(at: indexPath.row)
+//        applicationViewController.selectedEvent = eventService.getTask(at: indexPath.row)
 
         self.navigationController?.pushViewController(applicationViewController, animated: true)
     }
@@ -86,33 +85,4 @@ class FindViewController: UIViewController, UITableViewDelegate, UITableViewData
             completion(events)
         }
     }
-    
-    
-    
-    let user = User.shared
-
-    @IBAction func didTouchLogoutButton(_ sender: Any) {
-        //メールアドレスアカウントのログアウト
-        user.logout()
-        //Facebookアカウントのログアウト
-        do {
-            let loginManager = FBSDKLoginManager()
-            loginManager.logOut() //Facebookログアウト
-            try Auth.auth().signOut() // Firebaseログアウト
-            print("👼 ログアウト完了")
-        } catch let signOutError as NSError {
-            print ("👿 Error signing out: %@", signOutError)
-        }
-        
-        //Storyboardを指定
-        let storyboard = UIStoryboard(name: "Login", bundle: nil)
-        //Viewcontrollerを指定
-        let initialViewController = storyboard.instantiateViewController(withIdentifier: "LoginViewController")
-        
-        let appDelegate = UIApplication.shared.delegate as! AppDelegate
-        
-        //rootViewControllerに入れる
-        appDelegate.window?.rootViewController = initialViewController
-    }
-    
 }

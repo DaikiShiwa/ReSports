@@ -31,14 +31,21 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="M27-RX-e8S"/>
                     </view>
-                    <navigationItem key="navigationItem" title="地図" id="Fq5-Kg-6N1"/>
+                    <navigationItem key="navigationItem" title="地図" id="Fq5-Kg-6N1">
+                        <barButtonItem key="rightBarButtonItem" title="Item" id="xIA-rb-qcj">
+                            <connections>
+                                <segue destination="XPL-C1-lVf" kind="show" id="DA8-cu-qFg"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
+                        <outlet property="button" destination="xIA-rb-qcj" id="40M-tJ-baJ"/>
                         <outlet property="mapView" destination="6oh-jj-H7y" id="ELb-dn-n7A"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="TWC-b9-sCw" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="799.20000000000005" y="795.6521739130435"/>
+            <point key="canvasLocation" x="2209" y="-430"/>
         </scene>
         <!--開催登録-->
         <scene sceneID="VgP-mx-3TX">
@@ -52,12 +59,12 @@
                     </view>
                     <navigationItem key="navigationItem" title="開催登録" id="LA7-pS-BNc"/>
                     <connections>
-                        <segue destination="Ha1-2z-6R9" kind="show" identifier="showToDetailLaunchViewController" id="bwF-iy-CpV"/>
+                        <segue destination="A51-Hz-sg7" kind="show" identifier="showToNextLaunchViewController" id="GDs-hP-a8d"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8as-kU-fRv" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="698" y="1578"/>
+            <point key="canvasLocation" x="2209" y="381"/>
         </scene>
         <!--詳細情報-->
         <scene sceneID="SL9-XX-DE0">
@@ -67,51 +74,36 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="地図" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eUd-Ad-C4V">
-                                <rect key="frame" x="15" y="40" width="345" height="21"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="住所" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eUd-Ad-C4V">
+                                <rect key="frame" x="15" y="84" width="345" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="HOZ-tw-d1O" customClass="GMSMapView">
-                                <rect key="frame" x="0.0" y="66" width="375" height="160"/>
+                                <rect key="frame" x="0.0" y="155" width="375" height="160"/>
                                 <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="160" id="rDQ-jH-WVG"/>
                                 </constraints>
                             </view>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="写真" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="W56-SE-YLK">
-                                <rect key="frame" x="15" y="236" width="345" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <imageView clipsSubviews="YES" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="album" translatesAutoresizingMaskIntoConstraints="NO" id="U9P-QC-edt">
-                                <rect key="frame" x="0.0" y="262" width="375" height="100"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="100" id="Ib5-Oc-Qvs"/>
-                                </constraints>
-                                <connections>
-                                    <outletCollection property="gestureRecognizers" destination="Bf7-WI-Yrd" appends="YES" id="5R5-Fo-yiF"/>
-                                </connections>
-                            </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="備考" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0mH-7w-VK5">
-                                <rect key="frame" x="15" y="372" width="345" height="21"/>
+                                <rect key="frame" x="15" y="330" width="345" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gQ5-qh-2a6">
-                                <rect key="frame" x="15" y="398" width="345" height="120"/>
+                                <rect key="frame" x="15" y="356" width="345" height="150"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="120" id="tAo-3I-lra"/>
+                                    <constraint firstAttribute="height" constant="150" id="tAo-3I-lra"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hXS-TC-azY">
-                                <rect key="frame" x="0.0" y="538" width="375" height="40"/>
+                                <rect key="frame" x="0.0" y="536" width="375" height="40"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="mw8-Sv-27E"/>
@@ -120,30 +112,46 @@
                                 <state key="normal" title="確認"/>
                                 <connections>
                                     <action selector="checkButton:" destination="A51-Hz-sg7" eventType="touchUpInside" id="7uA-Fk-IIT"/>
+                                    <segue destination="7lw-Tf-Pz2" kind="show" identifier="showToCheckViewController" id="emB-VW-fch"/>
                                 </connections>
                             </button>
+                            <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="pin-map" translatesAutoresizingMaskIntoConstraints="NO" id="yrn-sp-4PY">
+                                <rect key="frame" x="15" y="110" width="40" height="40"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="40" id="OaD-yd-ahP"/>
+                                    <constraint firstAttribute="height" constant="40" id="glF-jW-SNB"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="東京都新宿区" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HPD-W3-A77">
+                                <rect key="frame" x="58" y="110" width="312" height="40"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="bDS-89-kq0"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" red="0.93501549959182739" green="0.93221968412399292" blue="0.95221251249313354" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="0mH-7w-VK5" firstAttribute="top" secondItem="U9P-QC-edt" secondAttribute="bottom" constant="10" id="2D6-Dz-4Gf"/>
                             <constraint firstItem="eUd-Ad-C4V" firstAttribute="top" secondItem="oXp-mc-uwf" secondAttribute="top" constant="20" id="2x0-5A-4jR"/>
-                            <constraint firstItem="U9P-QC-edt" firstAttribute="top" secondItem="W56-SE-YLK" secondAttribute="bottom" constant="5" id="4lb-AI-WPT"/>
+                            <constraint firstItem="oXp-mc-uwf" firstAttribute="trailing" secondItem="HPD-W3-A77" secondAttribute="trailing" constant="5" id="AUa-Lh-7m6"/>
                             <constraint firstItem="0mH-7w-VK5" firstAttribute="leading" secondItem="oXp-mc-uwf" secondAttribute="leading" constant="15" id="Gwr-vG-g8d"/>
                             <constraint firstItem="gQ5-qh-2a6" firstAttribute="top" secondItem="0mH-7w-VK5" secondAttribute="bottom" constant="5" id="HK8-VJ-tdl"/>
+                            <constraint firstItem="HOZ-tw-d1O" firstAttribute="top" secondItem="yrn-sp-4PY" secondAttribute="bottom" constant="5" id="HTv-rx-fWa"/>
                             <constraint firstItem="oXp-mc-uwf" firstAttribute="trailing" secondItem="eUd-Ad-C4V" secondAttribute="trailing" constant="15" id="MLt-ag-etW"/>
-                            <constraint firstItem="HOZ-tw-d1O" firstAttribute="top" secondItem="eUd-Ad-C4V" secondAttribute="bottom" constant="5" id="O5e-A3-OcR"/>
                             <constraint firstItem="oXp-mc-uwf" firstAttribute="trailing" secondItem="gQ5-qh-2a6" secondAttribute="trailing" constant="15" id="PqN-OF-fZg"/>
-                            <constraint firstItem="U9P-QC-edt" firstAttribute="trailing" secondItem="oXp-mc-uwf" secondAttribute="trailing" id="Q0z-TD-MBc"/>
                             <constraint firstItem="eUd-Ad-C4V" firstAttribute="leading" secondItem="oXp-mc-uwf" secondAttribute="leading" constant="15" id="SAf-48-h9G"/>
-                            <constraint firstItem="U9P-QC-edt" firstAttribute="leading" secondItem="oXp-mc-uwf" secondAttribute="leading" id="XA5-zM-gWJ"/>
-                            <constraint firstItem="oXp-mc-uwf" firstAttribute="trailing" secondItem="W56-SE-YLK" secondAttribute="trailing" constant="15" id="YCB-RP-w5v"/>
                             <constraint firstItem="gQ5-qh-2a6" firstAttribute="leading" secondItem="oXp-mc-uwf" secondAttribute="leading" constant="15" id="YVq-u8-K14"/>
                             <constraint firstItem="hXS-TC-azY" firstAttribute="trailing" secondItem="oXp-mc-uwf" secondAttribute="trailing" id="YfT-WE-QtA"/>
-                            <constraint firstItem="W56-SE-YLK" firstAttribute="top" secondItem="HOZ-tw-d1O" secondAttribute="bottom" constant="10" id="dI6-XW-94H"/>
-                            <constraint firstItem="hXS-TC-azY" firstAttribute="top" secondItem="gQ5-qh-2a6" secondAttribute="bottom" constant="20" id="iWp-bA-jBo"/>
+                            <constraint firstItem="0mH-7w-VK5" firstAttribute="top" secondItem="HOZ-tw-d1O" secondAttribute="bottom" constant="15" id="czZ-hB-PcT"/>
+                            <constraint firstItem="HPD-W3-A77" firstAttribute="leading" secondItem="yrn-sp-4PY" secondAttribute="trailing" constant="3" id="dVs-bn-qkq"/>
+                            <constraint firstItem="hXS-TC-azY" firstAttribute="top" secondItem="gQ5-qh-2a6" secondAttribute="bottom" constant="30" id="iWp-bA-jBo"/>
+                            <constraint firstItem="yrn-sp-4PY" firstAttribute="leading" secondItem="oXp-mc-uwf" secondAttribute="leading" constant="15" id="jTf-eO-NFV"/>
                             <constraint firstItem="HOZ-tw-d1O" firstAttribute="trailing" secondItem="oXp-mc-uwf" secondAttribute="trailing" id="kh4-F1-6EZ"/>
                             <constraint firstItem="oXp-mc-uwf" firstAttribute="trailing" secondItem="0mH-7w-VK5" secondAttribute="trailing" constant="15" id="m7n-Z2-fzc"/>
-                            <constraint firstItem="W56-SE-YLK" firstAttribute="leading" secondItem="oXp-mc-uwf" secondAttribute="leading" constant="15" id="toX-4v-Zhg"/>
+                            <constraint firstItem="yrn-sp-4PY" firstAttribute="top" secondItem="eUd-Ad-C4V" secondAttribute="bottom" constant="5" id="mvv-NZ-4YX"/>
+                            <constraint firstItem="HPD-W3-A77" firstAttribute="top" secondItem="eUd-Ad-C4V" secondAttribute="bottom" constant="5" id="qIA-vB-JeX"/>
                             <constraint firstItem="hXS-TC-azY" firstAttribute="leading" secondItem="oXp-mc-uwf" secondAttribute="leading" id="yYr-jy-bwy"/>
                             <constraint firstItem="HOZ-tw-d1O" firstAttribute="leading" secondItem="oXp-mc-uwf" secondAttribute="leading" id="zxx-V1-KR9"/>
                         </constraints>
@@ -151,9 +159,9 @@
                     </view>
                     <navigationItem key="navigationItem" title="詳細情報" id="tV3-kw-EcT"/>
                     <connections>
+                        <outlet property="addressLabel" destination="HPD-W3-A77" id="LCN-Cw-g3S"/>
                         <outlet property="mapCanvasView" destination="HOZ-tw-d1O" id="pKz-H6-Njz"/>
                         <outlet property="remarksTextField" destination="gQ5-qh-2a6" id="ebc-Lo-T0m"/>
-                        <outlet property="todoImageView" destination="U9P-QC-edt" id="fBr-Xw-5Yq"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vbG-J1-Abd" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -163,7 +171,7 @@
                     </connections>
                 </tapGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="1580" y="2420"/>
+            <point key="canvasLocation" x="3033" y="381"/>
         </scene>
         <!--詳細情報-->
         <scene sceneID="tBI-BR-wkJ">
@@ -174,7 +182,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="B5Q-Vx-yyx">
-                                <rect key="frame" x="0.0" y="64" width="375" height="454"/>
+                                <rect key="frame" x="0.0" y="20" width="375" height="547"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="vMw-Ra-mEU">
@@ -188,7 +196,7 @@
                                 </prototypes>
                             </tableView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="B4E-uB-et2">
-                                <rect key="frame" x="0.0" y="548" width="375" height="40"/>
+                                <rect key="frame" x="0.0" y="597" width="375" height="40"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="loe-5q-uzZ"/>
@@ -197,11 +205,10 @@
                                 <state key="normal" title="確認"/>
                                 <connections>
                                     <action selector="didTouchCheckButton:" destination="Ha1-2z-6R9" eventType="touchUpInside" id="g8B-Su-lqb"/>
-                                    <segue destination="7lw-Tf-Pz2" kind="show" identifier="showToCheckViewController" id="Gkc-s5-xKO"/>
                                 </connections>
                             </button>
                         </subviews>
-                        <color key="backgroundColor" red="0.93333333333333335" green="0.93333333333333335" blue="0.95294117647058818" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="B5Q-Vx-yyx" firstAttribute="trailing" secondItem="PPw-Ai-2yX" secondAttribute="trailing" id="KW1-0x-b9q"/>
                             <constraint firstItem="B4E-uB-et2" firstAttribute="leading" secondItem="PPw-Ai-2yX" secondAttribute="leading" id="SoH-KT-kMC"/>
@@ -220,7 +227,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="XJc-tA-whN" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1580" y="1576"/>
+            <point key="canvasLocation" x="3593" y="-319"/>
         </scene>
         <!--開催内容の確認-->
         <scene sceneID="JIA-yS-i1z">
@@ -305,23 +312,29 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="X7A-2l-RPS" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2438" y="1577"/>
+            <point key="canvasLocation" x="3871" y="381"/>
         </scene>
         <!--マイページ-->
         <scene sceneID="7b2-nT-kMq">
             <objects>
-                <viewController id="vD7-oP-Bdw" customClass="OthersViewController" customModule="ReSports" sceneMemberID="viewController">
+                <viewController id="vD7-oP-Bdw" customClass="MypageViewController" customModule="ReSports" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="BvE-Fm-SM0">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="b4L-8L-17d"/>
                     </view>
-                    <navigationItem key="navigationItem" title="マイページ" id="WRD-3t-Sbg"/>
+                    <navigationItem key="navigationItem" title="マイページ" id="WRD-3t-Sbg">
+                        <barButtonItem key="rightBarButtonItem" title="logout" id="4MJ-mi-gcE">
+                            <connections>
+                                <action selector="didTouchLogoutButton:" destination="vD7-oP-Bdw" id="f7g-ai-hDd"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="nJM-k4-5dd" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4196" y="795.6521739130435"/>
+            <point key="canvasLocation" x="2209" y="1254"/>
         </scene>
         <!--一覧-->
         <scene sceneID="LpB-GR-Jhw">
@@ -335,7 +348,7 @@
                                 <rect key="frame" x="15" y="64" width="345" height="554"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="SearchCell" rowHeight="70" id="zYR-Zx-R3W">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="70" id="zYR-Zx-R3W">
                                         <rect key="frame" x="0.0" y="28" width="345" height="70"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="zYR-Zx-R3W" id="5YG-oU-xnM">
@@ -355,13 +368,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="QWA-bn-GdO"/>
                     </view>
-                    <navigationItem key="navigationItem" title="一覧" id="tCK-oW-73v">
-                        <barButtonItem key="leftBarButtonItem" title="logout" id="Z18-y2-oEU">
-                            <connections>
-                                <action selector="didTouchLogoutButton:" destination="wg3-Dc-rdZ" id="BP8-oR-xkT"/>
-                            </connections>
-                        </barButtonItem>
-                    </navigationItem>
+                    <navigationItem key="navigationItem" title="一覧" id="tCK-oW-73v"/>
                     <connections>
                         <outlet property="tableView" destination="K1n-db-g0K" id="8wa-5a-Xnw"/>
                         <segue destination="XPL-C1-lVf" kind="show" id="whV-AB-FfD"/>
@@ -369,7 +376,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="DZ8-st-4vO" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1700" y="1145"/>
+            <point key="canvasLocation" x="2209" y="-1253"/>
         </scene>
         <!--詳細画面-->
         <scene sceneID="AQP-xM-lPH">
@@ -450,7 +457,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="DRQ-ms-XrX" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-911.20000000000005" y="1144.6776611694154"/>
+            <point key="canvasLocation" x="3034" y="-1254"/>
         </scene>
         <!--Animated Tab Bar Controller-->
         <scene sceneID="f6n-Pg-nNF">
@@ -460,17 +467,19 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="barTintColor" red="1" green="0.57637232540000005" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </tabBar>
                     <connections>
                         <segue destination="GNO-dy-IJG" kind="relationship" relationship="viewControllers" id="bF3-fF-kyG"/>
                         <segue destination="zIX-H0-dBM" kind="relationship" relationship="viewControllers" id="baR-S7-Yt7"/>
                         <segue destination="lEj-DX-EZ8" kind="relationship" relationship="viewControllers" id="m4r-qk-mDK"/>
-                        <segue destination="UvT-bR-YNq" kind="relationship" relationship="viewControllers" id="Rfx-GU-rqP"/>
+                        <segue destination="UvT-bR-YNq" kind="relationship" relationship="viewControllers" id="bJV-US-geL"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xse-tw-cJT" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1136.8" y="53.523238380809602"/>
+            <point key="canvasLocation" x="247" y="-28"/>
         </scene>
         <!--一覧-->
         <scene sceneID="QGE-LJ-L6p">
@@ -479,10 +488,10 @@
                     <tabBarItem key="tabBarItem" title="一覧" image="search" id="BYD-U4-FiO" customClass="RAMAnimatedTabBarItem" customModule="RAMAnimatedTabBarController">
                         <userDefinedRuntimeAttributes>
                             <userDefinedRuntimeAttribute type="color" keyPath="textColor">
-                                <color key="value" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="value" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </userDefinedRuntimeAttribute>
                             <userDefinedRuntimeAttribute type="color" keyPath="iconColor">
-                                <color key="value" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="value" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </userDefinedRuntimeAttribute>
                         </userDefinedRuntimeAttributes>
                         <connections>
@@ -506,7 +515,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ofv-0M-n7Q" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <customObject id="JcS-VI-XeQ" customClass="RAMRightRotationAnimation" customModule="RAMAnimatedTabBarController"/>
             </objects>
-            <point key="canvasLocation" x="-1215.2" y="383.65817091454278"/>
+            <point key="canvasLocation" x="1380" y="-1253"/>
         </scene>
         <!--開催登録-->
         <scene sceneID="b6c-xN-GYP">
@@ -515,10 +524,10 @@
                     <tabBarItem key="tabBarItem" title="開催登録" image="register" id="2RN-09-k86" customClass="RAMAnimatedTabBarItem" customModule="RAMAnimatedTabBarController">
                         <userDefinedRuntimeAttributes>
                             <userDefinedRuntimeAttribute type="color" keyPath="textColor">
-                                <color key="value" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="value" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </userDefinedRuntimeAttribute>
                             <userDefinedRuntimeAttribute type="color" keyPath="iconColor">
-                                <color key="value" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="value" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </userDefinedRuntimeAttribute>
                         </userDefinedRuntimeAttributes>
                         <connections>
@@ -542,7 +551,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="FbQ-Ce-jgC" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <customObject id="z2l-dp-jd8" customClass="RAMFlipTopTransitionItemAnimations" customModule="RAMAnimatedTabBarController"/>
             </objects>
-            <point key="canvasLocation" x="2076" y="795.6521739130435"/>
+            <point key="canvasLocation" x="1380" y="381"/>
         </scene>
         <!--地図-->
         <scene sceneID="BR1-3G-SM5">
@@ -551,10 +560,10 @@
                     <tabBarItem key="tabBarItem" title="地図" image="pin-map" id="6PB-Ya-3fB" customClass="RAMAnimatedTabBarItem" customModule="RAMAnimatedTabBarController">
                         <userDefinedRuntimeAttributes>
                             <userDefinedRuntimeAttribute type="color" keyPath="textColor">
-                                <color key="value" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="value" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </userDefinedRuntimeAttribute>
                             <userDefinedRuntimeAttribute type="color" keyPath="iconColor">
-                                <color key="value" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="value" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </userDefinedRuntimeAttribute>
                         </userDefinedRuntimeAttributes>
                         <connections>
@@ -578,7 +587,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="49e-JL-vbR" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <customObject id="NaW-o2-As0" customClass="RAMBounceAnimation" customModule="RAMAnimatedTabBarController"/>
             </objects>
-            <point key="canvasLocation" x="-140" y="795.6521739130435"/>
+            <point key="canvasLocation" x="1380" y="-430"/>
         </scene>
         <!--マイページ-->
         <scene sceneID="18c-Vj-IOz">
@@ -587,10 +596,10 @@
                     <tabBarItem key="tabBarItem" title="マイページ" image="my" id="cUD-9h-o62" customClass="RAMAnimatedTabBarItem" customModule="RAMAnimatedTabBarController">
                         <userDefinedRuntimeAttributes>
                             <userDefinedRuntimeAttribute type="color" keyPath="textColor">
-                                <color key="value" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="value" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </userDefinedRuntimeAttribute>
                             <userDefinedRuntimeAttribute type="color" keyPath="iconColor">
-                                <color key="value" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="value" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </userDefinedRuntimeAttribute>
                         </userDefinedRuntimeAttributes>
                         <connections>
@@ -614,17 +623,17 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Siv-6q-5l2" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <customObject id="dXe-TV-oTQ" customClass="RAMFlipRightTransitionItemAnimations" customModule="RAMAnimatedTabBarController"/>
             </objects>
-            <point key="canvasLocation" x="3256.8000000000002" y="795.6521739130435"/>
+            <point key="canvasLocation" x="1380" y="1254"/>
         </scene>
     </scenes>
     <resources>
-        <image name="album" width="75" height="75"/>
         <image name="my" width="18" height="18"/>
         <image name="pin-map" width="18" height="18"/>
         <image name="register" width="18" height="18"/>
         <image name="search" width="18" height="18"/>
     </resources>
     <inferredMetricsTieBreakers>
+        <segue reference="DA8-cu-qFg"/>
         <segue reference="dre-nw-Gb4"/>
     </inferredMetricsTieBreakers>
 </document>

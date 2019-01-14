@@ -9,17 +9,19 @@
 import UIKit
 import GoogleMaps
 import GooglePlaces
-//import PKHUD
+import CoreLocation
 
 class NextLaunchViewController: UIViewController, GMSMapViewDelegate, CLLocationManagerDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
     @IBOutlet weak var mapCanvasView: UIView!
-    @IBOutlet weak var todoImageView: UIImageView!
+    @IBOutlet weak var addressLabel: UILabel!
     @IBOutlet weak var remarksTextField: UITextView!
     
+    let geocoder = CLGeocoder()
     var selectedEvent: Event?
     let marker = GMSMarker()
     var mapView: GMSMapView!
+    var address: String = ""
     private var locationManager: CLLocationManager?
     private var currentLocation: CLLocation?
     private var placesClient: GMSPlacesClient!
@@ -72,7 +74,22 @@ class NextLaunchViewController: UIViewController, GMSMapViewDelegate, CLLocation
         
         self.placesClient = GMSPlacesClient.shared()
         self.marker.map = self.mapView
+        
+        
     }
+    
+    func makeAddressString(placemark: CLPlacemark) -> String {
+        var address: String = ""
+        //address += placemark.postalCode != nil ? placemark.postalCode! : ""
+        address += placemark.administrativeArea != nil ? placemark.administrativeArea! : ""
+        address += placemark.subAdministrativeArea != nil ? placemark.subAdministrativeArea! : ""
+        address += placemark.locality != nil ? placemark.locality! : ""
+//        address += placemark.subLocality != nil ? placemark.subLocality! : ""
+        address += placemark.thoroughfare != nil ? placemark.thoroughfare! : ""
+        address += placemark.subThoroughfare != nil ? placemark.subThoroughfare! : ""
+        return address
+    }
+
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -82,6 +99,23 @@ class NextLaunchViewController: UIViewController, GMSMapViewDelegate, CLLocation
     /// マーカー以外をタップしたら
     func mapView(_ mapView: GMSMapView, didTapAt coordinate: CLLocationCoordinate2D) {
         self.marker.position = coordinate
+        
+        //住所の表示（ジオコーディング）
+        let location = CLLocation(latitude: marker.position.latitude, longitude: marker.position.longitude)
+        geocoder.reverseGeocodeLocation(location){ (placemarks, error) -> Void in
+            if error != nil {
+                print("error")
+                return
+            }
+            if placemarks!.count > 0 {
+                let pms = placemarks![0]
+                self.address = self.makeAddressString(placemark: pms)
+                print(self.address)
+                self.addressLabel.text = self.makeAddressString(placemark: pms)
+            } else {
+                print("error")
+            }
+        }
     }
     
     // MARK: CLLocationManagerDelegate
@@ -93,6 +127,7 @@ class NextLaunchViewController: UIViewController, GMSMapViewDelegate, CLLocation
             self.locationManager?.stopUpdatingLocation()
             self.initView = true
         }
+        
     }
     
     //画面をタップすると、キーボードが閉じる動作
@@ -101,78 +136,63 @@ class NextLaunchViewController: UIViewController, GMSMapViewDelegate, CLLocation
     }
     
     @IBAction func checkButton(_ sender: Any) {
-        
+        let address = self.address
         let latitude = self.marker.position.latitude
         let longitude = self.marker.position.longitude
         UserDefaults.standard.set(latitude, forKey: "latitude")
         UserDefaults.standard.set(longitude, forKey: "longitude")
-        
-//        let imageUrl:String? = todoImageView?.image
-//        UserDefaults.standard.set(imageUrl, forKey: "imageUrl")
-//        if (didChangedImage) {
-//            taskService.saveImage(image: todoImageView.image) { (imagleteUrl) in
-//                targetTask.imageUrl = imagleteUrl
-//                self.taskService.save()
-//                self.didChangedImage = false
-//                HUD.hide()
-//                self.navigationController?.popViewController(animated: true)
-//            }
-//        } else {
-//            self.taskService.save()
-//            self.didChangedImage = false
-//            self.navigationController?.popViewController(animated: true)
-//        }
+        UserDefaults.standard.set(address, forKey: "address")
         
         let remarks = remarksTextField.text
         UserDefaults.standard.set(remarks, forKey: "remarks")
         
         print("緯度", latitude)
         print("経度", longitude)
-//        print("写真", imageUrl!)
+        print("住所", address)
         print("備考", remarks!)
     }
     
-    @IBAction func didTouchImageButton(_ sender: Any) {
-        let alert = UIAlertController(title:"", message: "選択してください", preferredStyle: UIAlertController.Style.actionSheet)
-        alert.addAction(UIAlertAction(title: "カメラ", style: UIAlertAction.Style.default, handler: {
-            (action: UIAlertAction!) in
-            print("カメラ")
-            self.presentPicker(SourceType: .camera)
-            
-        }))
-        alert.addAction(UIAlertAction(title: "アルバム", style: UIAlertAction.Style.default, handler: {
-            (action: UIAlertAction!) in
-            print("アルバム")
-            self.presentPicker(SourceType: .photoLibrary)
-        }))
-        alert.addAction(UIAlertAction(title: "キャンセル", style: UIAlertAction.Style.cancel, handler: {
-            (action: UIAlertAction!) in
-            print("キャンセル")
-        }))
-        
-        self.present(alert, animated: true, completion: nil)
-    }
+//    @IBAction func didTouchImageButton(_ sender: Any) {
+//        let alert = UIAlertController(title:"", message: "選択してください", preferredStyle: UIAlertController.Style.actionSheet)
+//        alert.addAction(UIAlertAction(title: "カメラ", style: UIAlertAction.Style.default, handler: {
+//            (action: UIAlertAction!) in
+//            print("カメラ")
+//            self.presentPicker(SourceType: .camera)
+//
+//        }))
+//        alert.addAction(UIAlertAction(title: "アルバム", style: UIAlertAction.Style.default, handler: {
+//            (action: UIAlertAction!) in
+//            print("アルバム")
+//            self.presentPicker(SourceType: .photoLibrary)
+//        }))
+//        alert.addAction(UIAlertAction(title: "キャンセル", style: UIAlertAction.Style.cancel, handler: {
+//            (action: UIAlertAction!) in
+//            print("キャンセル")
+//        }))
+//
+//        self.present(alert, animated: true, completion: nil)
+//    }
     
-    func presentPicker(SourceType: UIImagePickerController.SourceType){
-        if UIImagePickerController.isSourceTypeAvailable(SourceType){
-            let cameraPicker = UIImagePickerController()
-            cameraPicker.sourceType = SourceType
-            cameraPicker.delegate = self
-            self.present(cameraPicker, animated: true, completion: nil)
-        }else {
-            print("The sourceType is not available")
-        }
-    }
+//    func presentPicker(SourceType: UIImagePickerController.SourceType){
+//        if UIImagePickerController.isSourceTypeAvailable(SourceType){
+//            let cameraPicker = UIImagePickerController()
+//            cameraPicker.sourceType = SourceType
+//            cameraPicker.delegate = self
+//            self.present(cameraPicker, animated: true, completion: nil)
+//        }else {
+//            print("The sourceType is not available")
+//        }
+//    }
     
-    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
-        
-        if let pickedImage = info[.originalImage] as? UIImage {
-            todoImageView.contentMode = .scaleAspectFill
-            todoImageView.image = pickedImage.resize(size: CGSize(width: 300, height: 200))
-            didChangedImage = true
-        }
-        picker.dismiss(animated: true, completion: nil)
-    }
+//    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+//
+//        if let pickedImage = info[.originalImage] as? UIImage {
+//            todoImageView.contentMode = .scaleAspectFill
+//            todoImageView.image = pickedImage.resize(size: CGSize(width: 300, height: 200))
+//            didChangedImage = true
+//        }
+//        picker.dismiss(animated: true, completion: nil)
+//    }
     
     
 }

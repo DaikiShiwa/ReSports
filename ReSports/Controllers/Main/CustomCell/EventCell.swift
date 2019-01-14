@@ -28,7 +28,7 @@ class EventCell:UITableViewCell {
         dateFormatter.dateStyle = .long
         dateFormatter.timeStyle = .short
         dateFormatter.locale = Locale(identifier: "ja_JP")
-        dateFormatter.doesRelativeDateFormatting = true
+//        dateFormatter.doesRelativeDateFormatting = true
         eventDayLabel.text = dateFormatter.string(from: event.eventDay!)
 
         eventNameLabel.text = event.eventsName
