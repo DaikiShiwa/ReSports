@@ -11,6 +11,7 @@ import Eureka
 
 class LaunchViewController: FormViewController {
     
+    var events: [Event] = []
     var eventsName = ""
     var sportsName = ""
     var eventDay = Date()

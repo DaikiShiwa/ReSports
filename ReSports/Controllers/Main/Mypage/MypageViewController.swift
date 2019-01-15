@@ -6,23 +6,29 @@
 //  Copyright © 2019 志波大輝. All rights reserved.
 //
 import CoreLocation
-import Eureka
+import UIKit
 import Firebase
 import FBSDKLoginKit
 import FirebaseFirestore
 
-class MypageViewController: FormViewController {
-    
-    var MyName = ""
-    var MyAge = ""
-    var MyJender = ""
-    var MyLocation = ""
-    var MyHobby = ""
+class MypageViewController: UIViewController {
 
+    @IBOutlet weak var nameLabel: UILabel!
+    @IBOutlet weak var todoImageView: UIImageView!
+    @IBOutlet weak var jenderLabel: UILabel!
+    @IBOutlet weak var ageLabel: UILabel!
+    @IBOutlet weak var locationLabel: UILabel!
+    @IBOutlet weak var hobbyLabel: UILabel!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        todoImageView.layer.cornerRadius = 55.0
+        todoImageView.clipsToBounds = true
 
     }
+    
+    
     
     let user = User.shared
     

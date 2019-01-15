@@ -82,9 +82,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="メールアドレス入力" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="fbZ-hl-Nin">
-                                <rect key="frame" x="30" y="108" width="316" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="メールアドレス入力" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="fbZ-hl-Nin">
+                                <rect key="frame" x="40" y="114" width="295" height="30"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
@@ -94,10 +93,12 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </textField>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NBy-C2-Fch">
-                                <rect key="frame" x="30" y="233" width="158" height="45"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NBy-C2-Fch">
+                                <rect key="frame" x="40" y="234" width="150" height="30"/>
                                 <color key="backgroundColor" red="0.44699072839999998" green="0.96028000120000001" blue="0.2899493575" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="150" id="QDd-UF-yQs"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="system" weight="black" pointSize="15"/>
                                 <state key="normal" title="新規登録">
                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
@@ -111,9 +112,8 @@
                                     <action selector="didTouchNewButton:" destination="fxJ-IG-QLq" eventType="touchUpInside" id="5PK-PI-R9t"/>
                                 </connections>
                             </button>
-                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="パスワード入力" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Rxx-Yf-KBy">
-                                <rect key="frame" x="30" y="168" width="316" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="パスワード入力" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Rxx-Yf-KBy">
+                                <rect key="frame" x="40" y="174" width="295" height="30"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
@@ -123,10 +123,12 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </textField>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zua-Uo-dgG">
-                                <rect key="frame" x="188" y="233" width="158" height="45"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zua-Uo-dgG">
+                                <rect key="frame" x="185" y="234" width="150" height="30"/>
                                 <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="150" id="pJO-T0-7UI"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="system" weight="black" pointSize="15"/>
                                 <state key="normal" title="ログイン">
                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
@@ -142,6 +144,18 @@
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="NBy-C2-Fch" firstAttribute="leading" secondItem="J4B-4Q-Jfb" secondAttribute="leading" constant="40" id="29d-9P-UhH"/>
+                            <constraint firstItem="NBy-C2-Fch" firstAttribute="top" secondItem="Rxx-Yf-KBy" secondAttribute="bottom" constant="30" id="2ZS-5c-bqZ"/>
+                            <constraint firstItem="fbZ-hl-Nin" firstAttribute="top" secondItem="J4B-4Q-Jfb" secondAttribute="top" constant="50" id="3Sa-oN-XQU"/>
+                            <constraint firstItem="J4B-4Q-Jfb" firstAttribute="trailing" secondItem="fbZ-hl-Nin" secondAttribute="trailing" constant="40" id="9EC-IP-5ua"/>
+                            <constraint firstItem="fbZ-hl-Nin" firstAttribute="leading" secondItem="J4B-4Q-Jfb" secondAttribute="leading" constant="40" id="AGT-bm-azg"/>
+                            <constraint firstItem="zua-Uo-dgG" firstAttribute="top" secondItem="Rxx-Yf-KBy" secondAttribute="bottom" constant="30" id="E4P-nR-f00"/>
+                            <constraint firstItem="J4B-4Q-Jfb" firstAttribute="trailing" secondItem="Rxx-Yf-KBy" secondAttribute="trailing" constant="40" id="iY4-ht-0oH"/>
+                            <constraint firstItem="J4B-4Q-Jfb" firstAttribute="trailing" secondItem="zua-Uo-dgG" secondAttribute="trailing" constant="40" id="lY5-T1-xK6"/>
+                            <constraint firstItem="Rxx-Yf-KBy" firstAttribute="leading" secondItem="J4B-4Q-Jfb" secondAttribute="leading" constant="40" id="sHC-cj-Xgm"/>
+                            <constraint firstItem="Rxx-Yf-KBy" firstAttribute="top" secondItem="fbZ-hl-Nin" secondAttribute="bottom" constant="30" id="ygM-RC-6dF"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="J4B-4Q-Jfb"/>
                     </view>
                     <navigationItem key="navigationItem" title="メールアドレスでログイン" leftItemsSupplementBackButton="YES" id="Zhq-W9-DZ1">
