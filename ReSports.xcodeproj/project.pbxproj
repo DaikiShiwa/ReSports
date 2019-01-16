@@ -34,7 +34,7 @@
 		1C0EA3A121E63B9300BB7F7B /* MapViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C0EA3A021E63B9300BB7F7B /* MapViewCell.swift */; };
 		1C0EA3A321E63BB600BB7F7B /* RemarksCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C0EA3A221E63BB600BB7F7B /* RemarksCell.swift */; };
 		1C0EA3A521E63C1E00BB7F7B /* RemarksCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1C0EA3A421E63C1E00BB7F7B /* RemarksCell.xib */; };
-		1C0F160E21EE109E00BFC10E /* UserProfile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C0F160D21EE109E00BFC10E /* UserProfile.swift */; };
+		1C0F160E21EE109E00BFC10E /* UserData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C0F160D21EE109E00BFC10E /* UserData.swift */; };
 		1C0F161121EE2E4500BFC10E /* MypageEditViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C0F161021EE2E4500BFC10E /* MypageEditViewController.swift */; };
 		1C184AE821C3F4B800AC3A27 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C184AE721C3F4B800AC3A27 /* LoginViewController.swift */; };
 		1C5633FE21C40FE90027B074 /* Login.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1C5633FD21C40FE90027B074 /* Login.storyboard */; };
@@ -77,7 +77,7 @@
 		1C0EA3A021E63B9300BB7F7B /* MapViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewCell.swift; sourceTree = "<group>"; };
 		1C0EA3A221E63BB600BB7F7B /* RemarksCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemarksCell.swift; sourceTree = "<group>"; };
 		1C0EA3A421E63C1E00BB7F7B /* RemarksCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RemarksCell.xib; sourceTree = "<group>"; };
-		1C0F160D21EE109E00BFC10E /* UserProfile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfile.swift; sourceTree = "<group>"; };
+		1C0F160D21EE109E00BFC10E /* UserData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserData.swift; sourceTree = "<group>"; };
 		1C0F161021EE2E4500BFC10E /* MypageEditViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MypageEditViewController.swift; sourceTree = "<group>"; };
 		1C184AE621C3F3EC00AC3A27 /* ReSports.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = ReSports.entitlements; sourceTree = "<group>"; };
 		1C184AE721C3F4B800AC3A27 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
@@ -208,7 +208,7 @@
 				1C0EA35F21DB85FC00BB7F7B /* Event.swift */,
 				1C56340221C425C20027B074 /* Credential.swift */,
 				1C56340921C436CB0027B074 /* User.swift */,
-				1C0F160D21EE109E00BFC10E /* UserProfile.swift */,
+				1C0F160D21EE109E00BFC10E /* UserData.swift */,
 			);
 			path = Entity;
 			sourceTree = "<group>";
@@ -528,7 +528,7 @@
 				1C56340A21C436CB0027B074 /* User.swift in Sources */,
 				1CD9469321B9759F007B3B30 /* AppDelegate.swift in Sources */,
 				1C0EA37921DC72E900BB7F7B /* CheckViewController.swift in Sources */,
-				1C0F160E21EE109E00BFC10E /* UserProfile.swift in Sources */,
+				1C0F160E21EE109E00BFC10E /* UserData.swift in Sources */,
 				1C0D257D21C390D9008D4883 /* Spot.swift in Sources */,
 				1C0EA3A121E63B9300BB7F7B /* MapViewCell.swift in Sources */,
 				1C08CAC621EC7BC2008A6DB6 /* MypageViewController.swift in Sources */,

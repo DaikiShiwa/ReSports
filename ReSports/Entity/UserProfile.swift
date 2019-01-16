@@ -1,5 +1,5 @@
 //
-//  UserProfile.swift
+//  UserData.swift
 //  ReSports
 //
 //  Created by 志波大輝 on 2019/01/15.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-struct UserProfile: Codable {
+struct UserData: Codable {
     let name: String
     let age: Int?
     let jender: String?

@@ -7,12 +7,23 @@
 //
 
 import UIKit
+import FirebaseFirestore
 
 class MypageEditViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UIPickerViewDelegate, UIPickerViewDataSource {
+
+    let db = Firestore.firestore()
+
+    // ユーザー毎のデータベースへの参照を取得する
+    private func getCollectionRef () -> CollectionReference {
+        guard let uid = User.shared.getUid() else {
+            fatalError ("Uidを取得出来ませんでした。")
+        }
+        return db.collection("users").document(uid).collection("userdata")
+    }
     
     @IBOutlet weak var ImageView: UIImageView!
     @IBOutlet weak var nameTextField: UITextField!
-    @IBOutlet weak var genderSegmentControl: UISegmentedControl!
+    @IBOutlet weak var jenderSegmentControl: UISegmentedControl!
     @IBOutlet weak var ageTextField: UITextField!
     @IBOutlet weak var locationTextField: UITextField!
     @IBOutlet weak var hobbyTextField: UITextField!
@@ -28,33 +39,58 @@ class MypageEditViewController: UIViewController, UIImagePickerControllerDelegat
     
     var didChangedImage = false
     
+    var datePicker = UIDatePicker()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         ImageView.layer.cornerRadius = 55.0
         ImageView.clipsToBounds = true
-        
+
         let tapRecognizer = UITapGestureRecognizer(target: self, action: #selector(tapGesture))
         self.view.addGestureRecognizer(tapRecognizer)
 
+        // 都道府県
         pickerView.delegate = self
         pickerView.dataSource = self
         pickerView.showsSelectionIndicator = true
-        
-        let toolbar = UIToolbar(frame: CGRectMake(0, 0, 0, 35))
+        let locationToolbar = UIToolbar(frame: CGRectMake(0, 0, 0, 35))
         let doneItem = UIBarButtonItem(barButtonSystemItem: .done, target: self, action: #selector(MypageEditViewController.done))
         let cancelItem = UIBarButtonItem(barButtonSystemItem: .cancel, target: self, action: #selector(MypageEditViewController.cancel))
-        toolbar.setItems([cancelItem, doneItem], animated: true)
-        
+        locationToolbar.setItems([cancelItem, doneItem], animated: true)
+
         self.locationTextField.inputView = pickerView
-        self.locationTextField.inputAccessoryView = toolbar
+        self.locationTextField.inputAccessoryView = locationToolbar
+
+        // 誕生日
+        datePicker.datePickerMode = .date
+        datePicker.date = Date()
+        datePicker.locale = Locale(identifier: "ja")
+        ageTextField.inputView = datePicker
+        let toolbar = UIToolbar(frame: CGRect(x: 0, y: 0, width: view.frame.size.width, height: 35))
+        let spacelItem = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: self, action: nil)
+        let AgeDoneItem = UIBarButtonItem(barButtonSystemItem: .done, target: self, action: #selector(AgeDone))
+        toolbar.setItems([spacelItem, AgeDoneItem], animated: true)
+        ageTextField.inputView = datePicker
+        ageTextField.inputAccessoryView = toolbar
     }
     
     @IBAction func didTouchSaveButton(_ sender: Any) {
-        print(nameTextField)
-        print(locationTextField)
-        print(ageTextField)
-        print(hobbyTextField)
+        let registerData: [String: Any] = ["myName": nameTextField.text!,
+                                           "myAge": ageTextField.text!,
+//                                           "myPhoto": nameTextField.text!,
+                                           "myLocation": locationTextField.text!,
+                                           "myHobby": hobbyTextField.text!,
+                                           "myJender": nameTextField.text!,]
+        let collctionRef = getCollectionRef()
+        collctionRef.addDocument(data: registerData)
+        
+        print(nameTextField.text!)
+        print(locationTextField.text!)
+        print(ageTextField.text!)
+        print(hobbyTextField.text!)
+        
+        self.navigationController?.popViewController(animated: true)
     }
     
     //都道府県ピッカー
@@ -81,6 +117,15 @@ class MypageEditViewController: UIViewController, UIImagePickerControllerDelegat
         return CGRect(x: x, y: y, width: width, height: height)
     }
     
+    //生年月日ピッカー
+    @objc func AgeDone() {
+        ageTextField.endEditing(true)
+        // 日付のフォーマット
+        let f = DateFormatter()
+        f.dateStyle = .long
+        f.locale = Locale(identifier: "ja")
+        ageTextField.text = f.string(from: datePicker.date)
+    }
     
     //画面をタップすると、キーボードが閉じる動作
     @objc func tapGesture(sender: UITapGestureRecognizer) {

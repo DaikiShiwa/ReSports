@@ -392,12 +392,6 @@
                                     <action selector="didTouchLogoutButton:" destination="vD7-oP-Bdw" eventType="touchUpInside" id="13x-KF-Lfc"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="歳" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="A33-tY-Yye">
-                                <rect key="frame" x="48.5" y="378" width="18.5" height="22"/>
-                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="18"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
@@ -412,7 +406,6 @@
                             <constraint firstItem="vCP-yj-CJ0" firstAttribute="leading" secondItem="b4L-8L-17d" secondAttribute="leading" constant="20" id="KcE-Us-mu0"/>
                             <constraint firstItem="PFR-UT-qo1" firstAttribute="top" secondItem="vCP-yj-CJ0" secondAttribute="bottom" constant="30" id="NKe-Ar-Q6L"/>
                             <constraint firstItem="t41-mK-HDP" firstAttribute="centerX" secondItem="TgS-Cg-azH" secondAttribute="centerX" id="OlD-Kc-7Tq"/>
-                            <constraint firstItem="A33-tY-Yye" firstAttribute="leading" secondItem="vfe-xt-3Yk" secondAttribute="trailing" constant="6" id="Pmb-Ir-WeT"/>
                             <constraint firstItem="b4L-8L-17d" firstAttribute="trailing" secondItem="W1l-tB-lNo" secondAttribute="trailing" constant="20" id="PoA-dm-Zv1"/>
                             <constraint firstItem="b4L-8L-17d" firstAttribute="trailing" secondItem="6Wz-Kl-zEe" secondAttribute="trailing" constant="20" id="SIH-yH-6ae"/>
                             <constraint firstItem="TgS-Cg-azH" firstAttribute="trailing" secondItem="b4L-8L-17d" secondAttribute="trailing" id="Vmq-iY-79B"/>
@@ -424,7 +417,6 @@
                             <constraint firstItem="TgS-Cg-azH" firstAttribute="top" secondItem="b4L-8L-17d" secondAttribute="top" constant="30" id="fBa-HC-2hC"/>
                             <constraint firstItem="XP4-ow-Z3u" firstAttribute="leading" secondItem="b4L-8L-17d" secondAttribute="leading" constant="20" id="foV-lZ-OLc"/>
                             <constraint firstItem="b4L-8L-17d" firstAttribute="trailing" secondItem="PFR-UT-qo1" secondAttribute="trailing" constant="80" id="g0u-0c-gEk"/>
-                            <constraint firstItem="6Wz-Kl-zEe" firstAttribute="top" secondItem="A33-tY-Yye" secondAttribute="bottom" constant="20" id="hRU-go-rOI"/>
                             <constraint firstItem="7SS-ig-Ito" firstAttribute="leading" secondItem="b4L-8L-17d" secondAttribute="leading" constant="20" id="hzN-4l-TCO"/>
                             <constraint firstItem="6Wz-Kl-zEe" firstAttribute="top" secondItem="vfe-xt-3Yk" secondAttribute="bottom" constant="20" id="i2q-SA-6oB"/>
                             <constraint firstItem="b4L-8L-17d" firstAttribute="trailing" secondItem="zDz-Rq-4YJ" secondAttribute="trailing" constant="20" id="i6n-sI-T3r"/>
@@ -435,14 +427,14 @@
                             <constraint firstItem="zDz-Rq-4YJ" firstAttribute="leading" secondItem="b4L-8L-17d" secondAttribute="leading" constant="20" id="skz-oF-Ii8"/>
                             <constraint firstItem="TgS-Cg-azH" firstAttribute="leading" secondItem="b4L-8L-17d" secondAttribute="leading" id="tQi-jR-NYU"/>
                             <constraint firstItem="XP4-ow-Z3u" firstAttribute="top" secondItem="t41-mK-HDP" secondAttribute="bottom" constant="40" id="ysd-Lz-tiC"/>
-                            <constraint firstItem="A33-tY-Yye" firstAttribute="top" secondItem="W1l-tB-lNo" secondAttribute="bottom" constant="10" id="zMu-BB-nws"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="b4L-8L-17d"/>
                     </view>
                     <navigationItem key="navigationItem" title="マイページ" id="WRD-3t-Sbg">
                         <barButtonItem key="rightBarButtonItem" systemItem="compose" id="kqn-iS-T8I">
                             <connections>
-                                <segue destination="6EA-gk-F9V" kind="show" id="Ph4-FI-QPi"/>
+                                <action selector="didTouchEditButton:" destination="vD7-oP-Bdw" id="MeR-0B-sPI"/>
+                                <segue destination="6EA-gk-F9V" kind="show" id="x8W-Gx-bG9"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -516,7 +508,7 @@
                                     <constraint firstAttribute="width" constant="200" id="2O9-hb-pJE"/>
                                 </constraints>
                                 <nil key="textColor"/>
-                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="18"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="jsy-xN-wpX">
@@ -525,7 +517,7 @@
                                     <constraint firstAttribute="width" constant="200" id="ppT-OH-2s4"/>
                                 </constraints>
                                 <nil key="textColor"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="iGU-uW-9HX">
@@ -534,7 +526,7 @@
                                     <constraint firstAttribute="width" constant="200" id="3fK-dG-ysT"/>
                                 </constraints>
                                 <nil key="textColor"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="9XP-M4-irw">
@@ -543,7 +535,7 @@
                                     <constraint firstAttribute="width" constant="200" id="Otf-uq-t7G"/>
                                 </constraints>
                                 <nil key="textColor"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="居住地" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0gO-jc-Qng">
@@ -593,6 +585,7 @@
                         <outlet property="ageTextField" destination="jsy-xN-wpX" id="j9P-Ik-xOG"/>
                         <outlet property="genderSegmentControl" destination="ouf-NZ-MAg" id="4pc-Av-UyZ"/>
                         <outlet property="hobbyTextField" destination="iGU-uW-9HX" id="gWp-ES-rg1"/>
+                        <outlet property="jenderSegmentControl" destination="ouf-NZ-MAg" id="KOu-Rp-vBZ"/>
                         <outlet property="locationTextField" destination="9XP-M4-irw" id="mMO-63-TVG"/>
                         <outlet property="nameTextField" destination="4aB-9Z-qGi" id="kUo-GH-AyW"/>
                     </connections>
