@@ -40,6 +40,14 @@ class ApplicationViewController: UIViewController, UITableViewDelegate, UITableV
         titleArray[1] = ["開催日時", "プレイ時間", "レベル", "性別", "年齢", "応募期限"]
         titleArray[2] = ["住所", "備考"]
 
+        for _ in 0 ... 2{
+            detailArray.append([])
+        }
+        
+        detailArray[0] = ["【初心者歓迎】テニスしませんか", "テニス"]
+        detailArray[1] = ["2019/01/27 9:00 午前", "2時間", "初心者", "", "30代、40代", "2019/01/26"]
+        detailArray[2] = ["東京都新宿区", "新宿駅集合"]
+        
 //        for _ in 0 ... 3{
 //            detailArray.append([])
 //        }
@@ -79,7 +87,7 @@ class ApplicationViewController: UIViewController, UITableViewDelegate, UITableV
             let cell = tableView.dequeueReusableCell(withIdentifier: "InfoCell") as! InfoCell
             //セルに表示する値（Labelの文字）を設定する
             cell.titleLabel?.text = self.titleArray[indexPath.section][indexPath.row]
-//            cell.detailLabel?.text = self.detailArray[indexPath.section][indexPath.row]
+            cell.detailLabel?.text = self.detailArray[indexPath.section][indexPath.row]
         
             return cell
     }

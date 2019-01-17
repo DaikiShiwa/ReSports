@@ -23,7 +23,8 @@ class MypageEditViewController: UIViewController, UIImagePickerControllerDelegat
     
     @IBOutlet weak var ImageView: UIImageView!
     @IBOutlet weak var nameTextField: UITextField!
-    @IBOutlet weak var jenderSegmentControl: UISegmentedControl!
+    @IBAction func jenderSegmentedControl(_ sender: UISegmentedControl) {
+    }
     @IBOutlet weak var ageTextField: UITextField!
     @IBOutlet weak var locationTextField: UITextField!
     @IBOutlet weak var hobbyTextField: UITextField!
@@ -73,6 +74,9 @@ class MypageEditViewController: UIViewController, UIImagePickerControllerDelegat
         toolbar.setItems([spacelItem, AgeDoneItem], animated: true)
         ageTextField.inputView = datePicker
         ageTextField.inputAccessoryView = toolbar
+        
+        //誕生日から年齢に変換
+        
     }
     
     @IBAction func didTouchSaveButton(_ sender: Any) {

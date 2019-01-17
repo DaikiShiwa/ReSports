@@ -483,6 +483,9 @@
                                     <segment title="男性"/>
                                     <segment title="女性"/>
                                 </segments>
+                                <connections>
+                                    <action selector="jenderSegmentedControl:" destination="6EA-gk-F9V" eventType="valueChanged" id="rzm-pa-BBH"/>
+                                </connections>
                             </segmentedControl>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="性別" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LbG-SW-9vY">
                                 <rect key="frame" x="25" y="444" width="31" height="18"/>
@@ -583,9 +586,7 @@
                     <connections>
                         <outlet property="ImageView" destination="UMO-Ck-6kX" id="XQS-Ld-sXO"/>
                         <outlet property="ageTextField" destination="jsy-xN-wpX" id="j9P-Ik-xOG"/>
-                        <outlet property="genderSegmentControl" destination="ouf-NZ-MAg" id="4pc-Av-UyZ"/>
                         <outlet property="hobbyTextField" destination="iGU-uW-9HX" id="gWp-ES-rg1"/>
-                        <outlet property="jenderSegmentControl" destination="ouf-NZ-MAg" id="KOu-Rp-vBZ"/>
                         <outlet property="locationTextField" destination="9XP-M4-irw" id="mMO-63-TVG"/>
                         <outlet property="nameTextField" destination="4aB-9Z-qGi" id="kUo-GH-AyW"/>
                     </connections>
